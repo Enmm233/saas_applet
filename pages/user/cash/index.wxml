@@ -1,0 +1,62 @@
+<!--pages/user/cash/index.wxml-->
+<wxs module="rank" src='../../../utils/state.wxs'></wxs>
+<view>
+  <van-tabs active="{{ active }}" bind:click="t" animated title-active-color="{{selectColor}}" color="#009A44">
+    <van-tab wx:for="{{title}}" title="{{item.name}}" wx:key="key">
+      <view wx:if="{{list.length!=0}}">
+
+        <view wx:for="{{list}}" wx:key="key" class="all-juan" bindtap="cashdetailUrl" data-id="{{item.id}}">
+          <image class="backimg" src="{{rank.backimg(item.coupons_status)}}"></image>
+
+          <view class="cash">
+
+            <view class="twelve {{rank.style(item.coupons_status)}}">余额</view>
+            <view class="twelve {{rank.style(item.coupons_status)}}">
+              <text class="ten">￥</text>
+              <text class="fourteen">{{rank.split(item.residue)[0]}}</text>.
+              <text class='ten'>{{rank.split(item.residue)[1]}}</text>
+            </view>
+
+
+            <view class="ten">面值{{item.money}}元</view>
+          </view>
+          <view class="info">
+            <view>
+              <view class="flex-left-right">
+                <text class="twelve">{{item.coupons_title}}</text>
+                <view class="ten statu">
+                  <text wx:if="{{item.coupons_status==2}}">正常</text>
+                  <text wx:if="{{item.coupons_status==1}}">未开始</text>
+                  <text wx:if="{{item.coupons_status==3}}">已使用</text>
+                  <text wx:if="{{item.coupons_status==4}}">已过期</text>
+                </view>
+
+              </view>
+              <view class="flex-left-right">
+                <view class="tags">
+                  <text wx:for="{{item.coupons_label}}" wx:key="key" class="{{rank.style(item.coupons_status)}}" wx:for-item="label">{{label}}</text>
+                </view>
+                <view>
+                  <van-icon name="arrow" />
+                </view>
+              </view>
+            </view>
+            <view class="gray-font ten start">
+              <text wx:if="{{item.coupons_status==1}}">{{item.start_time}}开始</text>
+              <text wx:if="{{item.coupons_status==2}}">{{item.expire_time}}过期</text>
+
+            </view>
+          </view>
+        </view>
+        <view class="gray-font ten bottom-text">
+          <van-loading size="20rpx" text-size="20rpx" wx:if="{{loading==true}}">正在加载...</van-loading>
+          <view wx:if="{{loading==false}}">已经到底呢！</view>
+        </view>
+      </view>
+      <view wx:else class="bitmap">
+        <image src="{{prefix+'no_record.png'}}" mode="aspectFit"></image>
+      </view>
+    </van-tab>
+  </van-tabs>
+
+</view>

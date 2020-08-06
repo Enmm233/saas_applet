@@ -1,0 +1,107 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "pages": [
+    "pages/index/index/index",
+    "pages/classify/index/index",
+    "pages/shopcart/index/index",
+    "pages/order/index/index",
+    "pages/user/index/index",
+    "pages/order/orderdetail/orderdetail",
+    "pages/index/search/index",
+    "pages/index/limitactive/index",
+    "pages/user/userInfo/userInfo",
+    "pages/user/forget/forget",
+    "pages/user/account/account",
+    "pages/user/account_to_edit/account_to_edit",
+    "pages/user/account_to_add/account_to_add",
+    "pages/index/shopdetail/index",
+    "pages/index/newback/index",
+    "pages/index/recommed/index",
+    "pages/index/collect/index",
+    "pages/shopcart/shoplist/index",
+    "pages/account/login/index",
+    "pages/account/register/index",
+    "pages/user/address/address",
+    "pages/user/binding/binding",
+    "pages/user/invoice/invoice",
+    "pages/user/bill_list/bill_list",
+    "pages/user/bill_detail/bill_detail",
+    "pages/user/recharge/recharge",
+    "pages/user/recharge_msg/recharge_msg",
+    "pages/user/recharge_list/recharge_list",
+    "pages/user/tailor/tailor",
+    "pages/shopcart/preay/index",
+    "pages/index/enterprise/index",
+    "pages/account/treaty/index",
+    "pages/account/forget/index",
+    "pages/user/cash/index",
+    "pages/user/cashdetail/index",
+    "pages/account/select/select",
+    "components/slider/index",
+    "pages/forbidden/forbidden",
+    "pages/user/purchase_record/purchase_record",
+    "pages/user/purchase_detail/purchase_detail"
+  ],
+  "usingComponents": {
+    "key-board": "components/keyboard/index",
+    "add-cart": "components/addcart/index",
+    "search": "components/search/index",
+    "back-top": "components/backtop/index",
+    "van-sticky": "@vant/weapp/sticky",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "move-verify": "components/slider/index",
+    "image-cropper": "./utils/image-cropper-master/image-cropper"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eaeaea",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eaeaea"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#999",
+    "list": [
+      {
+        "pagePath": "pages/index/index/index"
+      },
+      {
+        "pagePath": "pages/classify/index/index"
+      },
+      {
+        "pagePath": "pages/shopcart/index/index"
+      },
+      {
+        "pagePath": "pages/order/index/index"
+      },
+      {
+        "pagePath": "pages/user/index/index"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

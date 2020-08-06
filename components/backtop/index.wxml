@@ -1,0 +1,4 @@
+<!--components/backtop/index.wxml-->
+<view bindtap="top" class="go-top " wx:if="{{showTop}}">
+ <image src="/images/back.png"></image>
+</view>

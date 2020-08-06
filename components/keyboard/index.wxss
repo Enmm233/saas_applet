@@ -1,0 +1,72 @@
+/* components/keyBoard/index.wxss */
+
+.key_board {
+  position: fixed;
+  bottom: 0;
+  left:0;
+   transition: all 0.3s ease;
+     }
+
+.mask {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.key_board .input {
+  line-height: 80rpx;
+  height: 80rpx;
+  background: white;
+  padding: 0 20rpx;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.option {
+  display: flex;
+  background: #f7f6f6;
+}
+
+.montage {
+  width: 75%;
+  display: flex;
+  margin: 0 10rpx 20rpx;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.montage>view {
+  width: 150rpx;
+  height: 80rpx;
+  background: white;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.operate {
+  width: 25%;
+  margin-left: 10rpx;
+}
+
+.operate>view:last-child {
+  height: 180rpx;
+  line-height: 180rpx;
+}
+
+.operate>view {
+  background: #009a44;
+  color: white;
+  width: 150rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  text-align: center;
+}
+.top-z-index{position: fixed;z-index:9999;}
+.delete image{
+  width: 45rpx;
+  height: 20rpx;
+}

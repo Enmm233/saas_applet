@@ -1,0 +1,46 @@
+<!--pages/user/bill_detail/bill_detail.wxml-->
+<view class="bill_detail">
+
+  <view class="detail paddind_lr_20 paddind_tb_20">
+    <view wx:if="{{moneyListInfo.pay_type==1}}" class="title blue">转账</view>
+    <view wx:if="{{moneyListInfo.pay_type==2}}" class="title green">现金</view>
+    <view class="txt">
+      账单编号 : {{moneyListInfo.moneySn}}
+    </view>
+    <view class="txt">
+      账单创建时间 : {{moneyListInfo.date}}
+    </view>
+  </view>
+
+  <view class="detail paddind_lr_20 paddind_tb_20">
+    <view class="item_title">订单数量({{moneyListInfo.count}})</view>
+    <view class="item" wx:for="{{moneyListInfo.list}}" wx:key="xxx">
+      <view class="left">订单编号 : {{item.order_sn}}</view>
+      <view class="right">¥{{item.totalPrice}}</view>
+    </view>
+  
+    <view class="item">
+      <view class="money">
+        总额:  <text>¥{{moneyListInfo.total}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail paddind_lr_20 paddind_tb_20">
+    <view class="item">
+      <view class="left">实收</view>
+      <view class="right">¥{{moneyListInfo.net_receipts}}</view>
+    </view>
+    <view class="item">
+      <view class="left">差额</view>
+      <view class="right">¥{{moneyListInfo.difference}}</view>
+    </view>
+    <view class="item">
+      <view class="left">应收</view>
+      <view class="right">¥{{moneyListInfo.receivable}}</view>
+    </view>
+   
+  </view>
+
+</view>
+ 

@@ -1,0 +1,30 @@
+/* pages/shopcart/preay/index.wxss */
+page{font-size:28rpx;}
+.caution {
+  
+  background: #fad0ca;
+  color: #ff3e1e;
+  text-align: center;
+  padding: 10rpx 20rpx;
+}
+
+.info>view {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f8f6f9;
+  padding: 10px;
+}
+
+.question {
+  color: #808080;
+  padding: 10rpx 20px;
+}
+.select-option{width:40%;margin:30rpx auto 0;}
+.select-option>view{margin-top:20rpx;border-radius: 10rpx;color:white;
+text-align: center;padding:10rpx 0;
+}
+
+.confirm{background: #009a44;}
+.cancel{background:gray;}

@@ -1,0 +1,7 @@
+<view style="height:100rpx;"></view>
+<view class='footer'>
+  <view bindtap='tabBarUrl' wx:for="{{tabars}}" wx:key="index" class="nav" data-path='{{item.pagePath}}' data-idx='{{index}}'>
+    <image src="{{activeIndex===index?item.active:item.inactive}}"></image>
+    <text class='{{activeIndex === index ? "active" : ""}}'>{{item.title}}</text>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/user/recharge/recharge.wxss */
+page{
+  background: #FFFEFF;
+}
+.recharge{
+  border-top: 15rpx solid #F7F7F7;
+  padding-top: 10%;
+  text-align: center;
+}
+.recharge .title{
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+}
+.recharge .money{
+  font-size: 50rpx;
+  margin-bottom: 30rpx;
+}
+.recharge .list{
+  font-size: 26rpx;
+  color: #808080;
+}
+.recharge .list icon{
+  font-size: 24rpx;
+}
+.recharge .btn{
+  margin-top: 200rpx;
+}
+.recharge .btn view{
+  display: inline-block;
+  background: #009A44;
+  padding: 15rpx 120rpx;
+  border-radius: 5rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+}
+.btn button{ display: inline-block;
+  background: #009A44;
+  padding: 0rpx 120rpx;
+  border-radius: 5rpx;
+  color: #ffffff;
+  font-size: 28rpx;}

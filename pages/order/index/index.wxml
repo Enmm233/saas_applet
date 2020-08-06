@@ -1,0 +1,132 @@
+<!--pages/order/index/index.wxml-->
+<view class="order_box">
+	<view class="order_top">
+
+		<view class="order_header">
+			<van-nav-bar title="{{title}}" bind:click-right="showIsPopup">
+				<van-icon name="ellipsis" slot="right" />
+			</van-nav-bar>
+		</view>
+
+		<view class="order_user paddind_tb_10 paddind_lr_20"  wx:if="{{is_child != 1}}" bindtap="showPopup">
+      选择子账号：
+      <view class="txt">{{user_name}}</view>
+      <van-icon name="arrow" color="#808080"/>
+		</view>
+    <view class="order_tabs paddind_lr_20 paddind_tb_20">
+      <view class="tabs {{status==index?'active':''}}" wx:for="{{list}}" wx:key="key" bindtap="tabs" data-index="{{index}}" data-item="{{item}}">
+          {{item}}
+          <view class="xian" wx:if="{{status==index}}" wx:key="key"></view>
+        </view> 
+    </view>
+	</view>
+  <view class="order_list">
+
+      <view class="list paddind_lr_20" wx:for="{{orderList}}" wx:key="key">
+        <view class="list_id paddind_tb_10 flex_left_right" >
+        <text>订单编号：{{item.order_sn}}</text>
+        <text wx:if="{{item.order_status==0}}">待审核</text>
+        <text wx:if="{{item.order_status==1}}">备货中</text>
+        <text wx:if="{{item.order_status==2}}">配送中</text>
+        <text wx:if="{{item.order_status==3}}">已收货</text>
+        <text wx:if="{{item.order_status==4}}">已取消</text>
+        </view>
+
+        <view class="list_goods paddind_tb_10" bindtap="goodsitem" id="{{item.id}}">
+
+          <view class="goods_img">
+
+           <van-image use-error-slot src="{{item.item_img==''?imgRemote+orderInfo.item_default:item.item_img}}" width="150rpx" height="150rpx" fit="contain">
+            <image slot="error" src="{{imgRemote+orderInfo.item_default}}" mode="aspectFit"></image>
+          </van-image>
+</view>
+
+          <view class="goods_txt">
+            <view>
+              {{item.item_title}}
+              <text class="name">(等{{item.item_count}}件商品)</text>
+            </view>
+            <view class="time">
+              配送日期 : {{item.send_time}}
+            </view>
+            <view wx:if="{{item.is_cash_delivery==0}}">
+              运费：
+              <text class="money" wx:if="{{is_look==0}}">¥ ***</text>
+              <text class="money" wx:if="{{is_look==1}}">¥ {{item.delivery_fee}}</text>
+              应付：
+              <text class="money" wx:if="{{is_look==0}}">¥ ***</text>
+              <text class="money" wx:if="{{is_look==1}}">¥ {{item.yf_price}}</text>
+            </view> 
+            <view wx:if="{{item.is_cash_delivery==1}}">
+              实付：
+              <text class="money" wx:if="{{is_look==0}}">¥ ***</text>
+              <text class="money" wx:if="{{is_look==1}}">¥ {{item.total_fee}}</text>
+              应付：
+              <text class="money" wx:if="{{is_look==0}}">¥ ***</text>
+              <text class="money" wx:if="{{is_look==1}}">¥ {{item.yf_price}}</text>
+            </view>
+            <view wx:if="{{item.coupons_member_id != 0}}">
+              现金券：
+              <text class="money" wx:if="{{is_look==0}}">¥ ***</text>
+              <text class="money" wx:if="{{is_look==1}}">¥ {{item.coupons_price}}</text>
+            </view>
+
+
+            <view class="time flex_left_right">
+              <text>下单时间 : {{item.created_time}}</text>
+            
+              <text wx:if="{{item.pay_status==0}}" style="color:red;">未支付</text>
+              <text wx:if="{{item.pay_status==1}}" style="color:green;">已支付</text>
+            </view>
+          </view>
+
+        </view>
+        <view class="list_btn paddind_tb_10">
+
+         
+
+          <view class="btn green" wx:if="{{item.order_status==3||item.order_status==2}}" bindtap='oneMoreTime' id="{{item.id}}">再来一单</view>
+
+          <view class="btn blue" wx:if="{{item.order_status==2}}" id="{{item.id}}" bindtap='ckwl' id="{{item.vehicle_id}}">查看物流</view>
+
+          <view class="btn red" wx:if="{{item.order_status==2}}" bindtap='receiveOrder' id="{{item.id}}" data-orderindex="{{index}}">确认收货</view>
+
+          <block wx:if="{{is_child==0 && item.order_status==3 && item.pay_status==0}}">
+            <view class="btn red" wx:if="{{is_miniBind==1}}" id="{{item.id}}"  bindtap='play'>马上支付</view>
+            <button class="btn red" wx:if="{{is_miniBind==0}}" open-type="getUserInfo" bindgetuserinfo='bindWeChat'>马上支付</button>
+            <!-- <view class="btn red" wx:if="{{is_miniBind==1}}" open-type="getUserInfo" bindgetuserinfo='bindWeChat'>马上支付</view> -->
+          </block>
+
+          <view class="btn" wx:if="{{item.order_status==3 && item.pay_status==1}}">已支付</view>
+
+          <view class="btn" wx:if="{{item.order_status==0}}" bindtap='cancelOrder' id="{{item.id}}" data-orderindex="{{index}}">取消订单</view>
+
+        </view>
+      </view>
+
+      <view class="list_img" wx:if="{{default}}">
+         <image class="list_img" src="{{prefix+'no_content.png'}}" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="order_loadtxt">{{loadTxt}}</view>
+</view>
+
+
+
+<view class="order_popup_box" wx:if="{{ isPopup }}" bindtap="onIsClose">
+  <view class="order_popup">
+    <view class="popup_item" catchtap='toRouter' id="1">
+      全部订单
+    </view>
+    <view class="popup_item" catchtap='toRouter' id="2">
+      未支付
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{ show }}" round position="bottom" bind:close="onClose">
+	<van-picker show-toolbar title="子账号" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" />
+</van-popup>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
+<footer activeIndex="{{activeIndex}}"></footer>

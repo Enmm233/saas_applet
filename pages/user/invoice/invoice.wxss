@@ -1,0 +1,60 @@
+/* pages/user/invoice/invoice.wxss */
+.invoice .top{
+  margin-top: 10rpx;
+  padding: 0 25%;
+}
+.invoice .txt{
+  text-align: center;
+  color: #FF3E1E;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.invoice .list_box{
+  background: #ffffff;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+}
+.invoice .list_box .item{
+  border-bottom: 1rpx solid #F7F6F6;
+  display: flex;
+  align-items: center;
+}
+.invoice .list_box .item .left{
+  color: #808080;
+  width: 15%;
+  height: 26rpx;
+  line-height: 26rpx;
+  text-align: justify;
+  margin-right: 20rpx;
+}
+.invoice .list_box .item .left::after{
+  width: 100%;
+  display: inline-block;
+  content: '';  
+}
+.invoice .list_box .item .inp{
+  display: flex;
+  align-items: center;
+}
+.invoice .list_box .item .inp input{
+  width: 41%;
+  margin-right: 10rpx;
+}
+.van-tabs__scroll {
+  background: none !important;
+}
+.van-tabs__nav--card {
+  border: 1px solid #009A44 !important;
+  color: #009A44 !important;
+}
+.van-tabs__nav--card .van-tab.van-tab--active {
+  background-color: #009A44 !important;
+  color: #ffffff !important;
+}
+.van-tabs__nav--card .van-tab {
+  color: #009A44 !important;
+  border-right: none!important;
+}
+
+  
+  

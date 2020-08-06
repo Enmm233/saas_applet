@@ -1,0 +1,43 @@
+<!--pages/shopcart/preay/index.wxml-->
+<view class="pay-order">
+  <view class="caution">如出现下单端账号与支付账号不一样，请到个人中心更改绑定微信</view>
+  <view class="info">
+    <view>
+      <text>订单编号</text>
+      <text>{{list.order_sn}}</text>
+    </view>
+    <view>
+      <text>配送时间</text>
+      <text>{{list.send_time}}</text>
+    </view>
+    <view>
+      <text>订单金额</text>
+      <text class="red_font">￥{{list.total_fee}}</text>
+    </view>
+    <view>
+      <text>现金劵抵扣</text>
+      <text>{{list.coupons_price}}</text>
+    </view>
+    <view>
+      <text>我的余额</text>
+      <text class="red_font">￥{{list.myBalance}}</text>
+    </view>
+    <view>
+      <text>余额支付</text>
+      <text class="red_font">￥{{list.payBalance}}</text>
+    </view>
+    <view>
+      <text>微信支付</text>
+      <text class="red_font">￥{{list.payWx}}</text>
+    </view>
+
+  </view>
+  <view class="question">
+    注：平台不会以订单异常，系统升级等理由要求您点击任何链接进行退款操作，请提高警惕谨防受骗！
+  </view>
+  <view class="select-option">
+    <view class="confirm" bindtap="confirm">确认支付</view>
+    <view class="cancel" bindtap="cancel">取消支付</view>
+  </view>
+</view>
+<van-toast id="van-toast" />

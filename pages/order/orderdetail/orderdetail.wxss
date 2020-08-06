@@ -1,0 +1,96 @@
+/* pages/order/orderdetail/orderdetail.wxss */
+page{
+  background: #F7F7F7;
+}
+.orderdetail{
+  margin-top: 10rpx;
+}
+.orderdetail .detail{
+  background: #ffffff;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+}
+.orderdetail .detail:nth-child(3){
+  margin-bottom: 60rpx;
+}
+.orderdetail .detail .title_box,.item_box{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.orderdetail .detail .title_box .title{
+  font-size: 28rpx;
+}
+
+.orderdetail .detail .title_box .red{
+  color: #FF3E1E;
+  font-size: 24rpx;
+}
+
+.orderdetail .detail .title_box .green{
+  color: rgb(30, 165, 90);
+  font-size: 24rpx;
+}
+
+
+
+.orderdetail .detail .item_box .red{
+  color: #FF3E1E;
+  /* font-size: 24rpx; */
+}
+.orderdetail .detail .item_box .left{
+  width: 96rpx;
+  text-align: end;
+  font-size: 24rpx;
+}
+.orderdetail .detail .item_box .right{
+  text-align: end;
+  color: #808080;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.orderdetail .detail .item_box .remark{
+  width: 80%;
+  color: #808080;
+}
+.orderdetail .detail .item_goods{
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between ;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+}
+.orderdetail .detail .item_goods .right{
+  text-align: end;
+}
+.orderdetail .detail .item_goods .right_txt{
+  color: #808080;
+  margin-top: 10rpx;
+}
+.orderdetail .detail .item_goods .red{
+  color: #FF3E1E;
+}
+.orderdetail .detail .item_goods .left text{
+  background: #FF3E1E;
+  color: #ffffff;
+  border-radius: 5rpx;
+  padding-right: 5rpx;
+  padding-left: 5rpx;
+}
+.service_box{
+  position: fixed;
+  right: 20rpx;
+  bottom: 80rpx;
+}
+.service_box image{
+  width: 80rpx;
+  height: 80rpx;
+  background: transparent;
+}

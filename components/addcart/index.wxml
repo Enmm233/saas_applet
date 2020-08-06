@@ -1,0 +1,83 @@
+<!--components/addcart.wxml-->
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose" custom-style="border-radius:20rpx 20rpx 0 0;z-index:9999;">
+	<view class="select-add-cart">
+		<view class="flex photo">
+			<view>
+				<image src="{{cartInfo[1].logo}}" class="logo" mode="aspectFit"></image>
+				<van-image use-error-slot src="{{cartInfo[0].img==''?imgRemote+cartInfo[1].item_default:cartInfo[0].img}}" width="174rpx" height="174rpx" fit="contain">
+					<image slot="error" src="{{imgRemote+cartInfo[1].item_default}}" mode="aspectFit"></image>
+				</van-image>
+			</view>
+
+			<view class="cart-info">
+				<view>
+					<view class="twelve">{{cartInfo[0].title}}</view>
+					<view class="gray-font des-hidden ten" wx:if="{{cartInfo[0].describe}}">{{cartInfo[0].describe}}</view>
+				</view>
+				<view>
+					<view wx:if="{{cartInfo[0].label.length!=0}}">
+						<text class="red-tag" wx:for="{{cartInfo[0].label}}" wx:key="key">{{item}}</text>
+					</view>
+					<view>
+						<block wx:if="{{token}}">
+							<block wx:if="{{cartInfo[0].is_look==0}}">***</block>
+							<block wx:else>
+								<!-- 单规格 -->
+								<view wx:if="{{cartInfo[0].attr.length==0}}" class="twelve">
+									<block wx:if="{{cartInfo[0].is_activity==1}}">
+										<text class="rmb red-font">￥</text>
+										<text class="red-font">{{cartInfo[0].activity_price}}/{{cartInfo[0].unit}}</text>
+										<text class="market-price">￥{{cartInfo[0].price}}</text>
+									</block>
+									<block wx:else>
+										<text class="rmb red-font">￥</text>
+										<text class="red-font">{{cartInfo[0].price}}/{{cartInfo[0].unit}}</text>
+									</block>
+								</view>
+								<view wx:else class="red-font twelve line-hidden">
+                <block wx:if="{{cartInfo[0].attr[activeIndex].is_activity==1}}">
+                	<text class="rmb">￥</text>
+									<text>{{cartInfo[0].attr[activeIndex].activity_price}}/{{cartInfo[0].attr[activeIndex].unit}}</text>
+                  <text class="market-price">￥{{cartInfo[0].attr[activeIndex].attr_price}}</text>
+                </block>
+                <block wx:else>
+                	<text class="rmb">￥</text>
+									<text>{{cartInfo[0].attr[activeIndex].attr_price}}/{{cartInfo[0].attr[activeIndex].unit}}</text></block>
+								
+								</view>
+							</block>
+						</block>
+
+						<block wx:else>
+
+							<view wx:if="{{cartInfo[0].attr.length==0}}" class="red-font twelve">
+								<text class="rmb">￥</text>
+								<text>{{cartInfo[0].price}}/{{cartInfo[0].unit}}</text>
+							</view>
+							<view wx:else class="red-font twelve line-hidden">
+								<text class="rmb">￥</text>
+								<text>{{cartInfo[0].attr[activeIndex].attr_price}}/{{cartInfo[0].attr[activeIndex].unit}}</text>
+							</view>
+
+						</block>
+					</view>
+				</view>
+			</view>
+
+			<image src="../../images/x.png" class="delete" bindtap="onClose"></image>
+		</view>
+		<view wx:if="{{cartInfo[0].attr.length!=0}}">
+			<view>选择规格</view>
+			<view style="display:flex;flex-wrap:wrap;">
+				<text wx:for="{{cartInfo[0].attr}}" wx:key="key" bindtap="selectSpec" data-item="{{[item,index]}}" class='{{activeIndex === index ? "active" : "inactive"}}'>{{item.attr_title}}</text>
+			</view>
+		</view>
+		<view class="buy-nums">
+			<text>购买数量</text>
+
+			<van-stepper value="{{ num }}" bind:change="onChange" />
+		</view>
+
+	</view>
+	<view class="confirm" bindtap="submit">确定</view>
+</van-popup>

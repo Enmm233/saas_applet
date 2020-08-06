@@ -1,0 +1,28 @@
+/* pages/forbidden/forbidden.wxss */
+.container {
+	text-align: center;
+	height: 100%;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+}
+
+.txt {
+	color: #6bbaa3;
+	font-size: 50rpx;
+	text-align: center;
+	font-weight: 600;
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+	display: block;
+	margin: auto;
+}
+
+.img image {
+	width: 500rpx;
+	height: 450rpx;
+	display: block;
+	margin: auto;
+	margin-top: 250rpx;
+	background: none !important;
+}

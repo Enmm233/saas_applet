@@ -1,0 +1,51 @@
+<!--pages/user/purchase_record/purchase_record.wxml-->
+<view class="bill_list">
+
+	<view class="top paddind_lr_20 paddind_tb_20">
+		<!-- <picker fields="month" mode="date" value="{{date}}" bindchange="bindDateChange"> -->
+			<view class="inp paddind_tb_10" bindtap="showPopup">
+				<van-icon name="search" />
+				<text>{{date}}</text>
+			</view>
+		<!-- </picker> -->
+		<view class="total_box" wx:if="{{record.total != ''}}">
+			合计：<text>¥{{record.total}}</text>
+		</view>
+	</view>
+
+	<view class="list_box paddind_lr_20">
+		<view class="item paddind_tb_20" bindtap="skip" data-itemid="{{item.item_id}}" data-attrid="{{item.attr_id}}" wx:for="{{moneyList}}" wx:key="xxx">
+			<view class="left">
+				<van-image use-error-slot src="{{item.item_url}}" width="150rpx" height="150rpx" fit="contain">
+				</van-image>
+			</view>
+			<view class="right">
+				<view class="top">
+					<view class="title">
+						{{item.item_title}}
+					</view>
+					<view class="detail">
+						 {{item.describe}} 
+					</view>
+				</view>
+				<view class="bottom">
+					共:{{item.nums}}{{item.unit}} 小计:{{item.subtotal}}元
+				</view>
+			</view>
+		</view>
+	
+	</view>
+	
+	<view class="default_box" hidden="{{isdefault}}">
+		<image class="goods_img" src="{{prefix+'no_record.png'}}" mode="aspectFit"></image>
+	</view>
+</view>
+<van-calendar
+  show="{{ show }}"
+  type="range"
+  bind:close="onClose"
+  bind:confirm="onConfirm"
+   min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"
+  default-date="{{defaultDate}}"
+/>

@@ -1,0 +1,92 @@
+/* pages/shopcart/shoplist/index.wxss */
+
+.shoplist-title {
+  padding: 0 20rpx 0 10rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  display: flex;
+  margin-bottom: 10rpx;
+  justify-content: space-between;
+}
+
+.shoplist-title .van-icon {
+  font-size: 40rpx;
+  margin-top: 2rpx;
+}
+
+.shoplist-list {
+  font-size: 32rpx;
+}
+
+.buy-list .sign-good {
+  padding: 10rpx 0;
+  border-bottom: 1px solid #f7f6f6;
+}
+
+.clear-all {
+  color: #009a44;
+}
+
+.goods>view:first-child {
+  width: 242rpx;
+}
+
+.goods>view:last-child {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.remark input {
+  width: 89%;
+}
+
+.green-tag {
+  background: #009a44;
+  color: white;
+  padding: 0 5rpx 2rpx;
+  border-radius: 4rpx;
+  margin-right: 15rpx;
+}
+
+.buy-list {
+  padding: 20rpx;
+}
+
+.goods .good-name {
+ width:66%;
+  margin-top:15rpx;
+}
+
+.goods .good-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gift {
+  font-size: 24rpx;
+}
+
+.present {
+  padding: 20rpx;
+  margin-top: 10rpx;
+}
+
+.gift text:first-child {
+  background: #ff3e1e;
+  color: white;
+  padding: 0 4rpx;
+  border-radius: 4rpx;
+  margin-right: 15rpx;
+}
+.textRemark{
+  padding: 20rpx 30rpx 20rpx 30rpx;
+}
+.remark{
+  width: 90%;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap; 
+}

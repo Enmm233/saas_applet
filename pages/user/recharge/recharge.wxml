@@ -1,0 +1,20 @@
+<!--pages/user/recharge/recharge.wxml-->
+<view class="recharge">
+  <view class="top">
+    <view class="title">
+      账户余额 (元）
+    </view>
+    <view class="money">
+      {{memberInfoData.info.balance}}
+    </view>
+    <view class="list" bindtap="recharge_list">
+      充值记录
+      <icon class="iconfont icon-jiantou"></icon>
+    </view>
+  </view>
+  <view class="btn">
+      <button wx:if="{{is_miniBind==0}}" open-type="getUserInfo" bindgetuserinfo='bindWeChat'>充值</button>
+      <view wx:if="{{is_miniBind==1}}" bindtap="recharge">充值</view>
+  </view>
+</view>
+<key-board isHidden="{{show}}" bind:enterKey="enterKey"></key-board>

@@ -1,0 +1,27 @@
+<!--components/addcart.wxml-->
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose" 
+custom-style="border-radius:20rpx 20rpx 0 0;z-index:9999;">
+  
+  <view class="select-add-cart">
+    <view class="flex photo">
+      <image src="../../images/addcart.png" mode="aspectFit" class="shop-photo"></image>
+      <view class="cart-info">
+        <view>樱桃樱桃樱桃樱桃樱桃樱桃樱桃 樱桃樱桃樱桃樱桃樱桃</view>
+        <view class="gray-font des-hidden"> 描述描述描述描述描述描述描述描述描...</view>
+        <view>
+          <text class="red-tag">爆款</text>
+        </view>
+        <view class="red-font">
+          <text class="rmb">¥</text>10.25/个 </view>
+      </view>
+       <image src="../../images/x.png" class="delete" ></image>
+    </view>
+    
+    <view class="buy-nums">
+      <text>购买数量</text>
+      <van-stepper></van-stepper>
+    </view>
+   
+  </view>
+   <view class="confirm">确定</view>
+</van-popup>

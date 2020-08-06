@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "footer": "../../../components/footer/footer"
+  },
+  "navigationBarTitleText": "分类"
+}

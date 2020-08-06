@@ -1,0 +1,117 @@
+<!--pages/order/orderdetail/orderdetail.wxml-->
+<view class="orderdetail">
+  <view class="detail">
+
+    <view class="title_box">
+      <view class="title">支付信息</view>
+      <view class="green" wx:if="{{orderInfo.orderInfo.order_status==0}}">待审核</view>
+      <view class="green" wx:if="{{orderInfo.orderInfo.order_status==1}}">备货中</view>
+      <view class="green" wx:if="{{orderInfo.orderInfo.order_status==2}}">配送中</view>
+      <view class="green" wx:if="{{orderInfo.orderInfo.order_status==3}}">已收货</view>
+      <view class="red" wx:if="{{orderInfo.orderInfo.order_status==4}}">已取消</view>
+
+    </view>
+
+    <view class="item_box">
+      <view class="left">下单时间</view>
+      <view class="right">{{orderInfo.orderInfo.create_time}}</view>
+    </view>
+
+    <view class="item_box">
+      <view class="left">配送日期</view>
+      <view class="right">{{orderInfo.orderInfo.send_time}}</view>
+    </view>
+     <view class="item_box">
+      <view class="left">配送时间</view>
+      <view class="right">{{orderInfo.orderInfo.delivery_time_info?orderInfo.orderInfo.delivery_time_info:''}}</view>
+    </view>
+    
+    <view class="item_box">
+      <view class="left">订单编号</view>
+      <view class="right">{{orderInfo.orderInfo.order_sn}}</view>
+    </view>
+
+    <view class="item_box">
+      <view class="left">联系电话</view>
+      <view class="right">{{orderInfo.orderInfo.mobile}}</view>
+    </view>
+
+    <view class="item_box">
+      <view class="left">送货地址</view>
+      <view class="right">{{orderInfo.orderInfo.address}}</view>
+    </view>
+
+    <view class="item_box">
+      <view class="left">备注</view>
+      <view class="remark">{{orderInfo.orderInfo.remark?orderInfo.orderInfo.remark:''}}</view>
+    </view>
+  </view>
+
+    <view class="detail">
+      <view class="title_box">
+        <view class="title">金额信息</view>
+      </view>
+
+      <view class="item_box">
+        <view class="left">下单金额</view>
+        <view class="red" wx:if="{{orderInfo.is_look==0}}">¥ ***</view>
+        <view class="red" wx:if="{{orderInfo.is_look==1}}">¥ {{orderInfo.orderInfo.xd_price}}</view>
+      </view>
+      
+      <view class="item_box">
+        <view class="left">退货金额</view>
+        <view class="red" wx:if="{{orderInfo.is_look==0}}">¥ ***</view>
+        <view class="red" wx:if="{{orderInfo.is_look==1}}">¥ {{orderInfo.orderInfo.th_price}}</view>
+      </view>
+
+      <view class="item_box">
+        <view class="left">运费</view>
+        <view class="right" wx:if="{{orderInfo.is_look==0}}">¥ ***</view>
+        <view class="right" wx:if="{{orderInfo.is_look==1}}">¥ {{orderInfo.orderInfo.delivery_fee}}</view>
+      </view>
+
+      <view class="item_box">
+        <view class="left">应付金额</view>
+        <view class="right" wx:if="{{orderInfo.is_look==0}}">¥ ***</view>
+        <view class="right" wx:if="{{orderInfo.is_look==1}}">¥ {{orderInfo.orderInfo.yf_price}}</view>
+      </view>
+      <view class="item_box" wx:if="orderInfo.is_cash_delivery == 1"> 
+        <view class="left">实付金额</view>
+        <view class="right" wx:if="{{orderInfo.is_look==0}}">¥ ***</view>
+        <view class="right" wx:if="{{orderInfo.is_look==1}}">¥ {{orderInfo.orderInfo.total_fee}}</view> 
+      </view>
+
+       <view class="item_box">
+        <view class="left">支付状态</view>
+        <view class="right" wx:if="{{orderInfo.orderInfo.pay_status==0}}">未支付</view>
+        <view class="right" wx:if="{{orderInfo.orderInfo.pay_status==1}}">已支付</view>
+      </view>
+
+  </view>
+
+
+  <view class="detail">
+
+      <view class="title_box">
+        <view class="title">商品信息</view>
+      </view>
+      <view class="item_goods" wx:for="{{orderInfo.orderInfo.order_list}}" wx:key="xxx">
+        <view class="left">
+          <view> <text wx:if="{{item.is_gift==1}}">赠</text> {{item.item_title}}</view>
+          <view class="right_txt">下单数量 : {{item.num}}</view>
+        </view>
+        <view class="right">
+          <view class="red" wx:if="{{orderInfo.is_look==1}}">¥ {{item.price}}/{{item.unit}}</view>
+          <view class="red" wx:if="{{orderInfo.is_look==0}}">¥ ***</view>
+          <view class="right_txt">配送数量 : {{item.weight}}</view>
+        </view>
+      </view>
+  
+  </view>
+
+  <view class="service_box" bindtap='phone'>
+    <image class="goods_img" src="{{prefix+'service.png'}}" mode="aspectFit"></image>
+  </view>
+
+
+</view>

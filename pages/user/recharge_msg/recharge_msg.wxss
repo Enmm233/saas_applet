@@ -1,0 +1,31 @@
+/* pages/user/recharge_msg/recharge_msg.wxss */
+.recharge_msg .top{
+  background: #FAD0CC;
+  color: #FF3E1E;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 5rpx 0;
+}
+.recharge_msg .list_box{
+  background: #ffffff;
+}
+.recharge_msg .list_box .item{
+  border-bottom: 1rpx solid #F8F6F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recharge_msg .list_box .item .name{
+  color: #1A1A1A;
+}
+.recharge_msg .list_box .item .num{
+  color: #808080;
+}
+.recharge_msg .list_box .item .momey{
+  color: #FF3E1E;
+}
+.recharge_msg .txt{
+  color: #808080;
+  font-size: 24rpx;
+  margin-bottom: 100rpx;
+}

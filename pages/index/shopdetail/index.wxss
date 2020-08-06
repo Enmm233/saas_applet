@@ -1,0 +1,225 @@
+/* pages/index/shopdetail/index.wxss */
+
+.bottom-operate {
+  border-top: 1px solid #dedede;
+  height: 97.8rpx;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+.pho{width:100%;}
+.collect {
+  padding-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.collect .van-icon {
+  font-size: 40rpx;
+}
+
+.collect .van-icon-star {
+  font-size: 40rpx;
+}
+
+.buy-option {
+  padding-right: 20rpx;
+  color: white;
+  font-size: 30rpx;
+}
+
+.buy-option .add-cart {
+  background: #addb8c;
+  border-radius: 12rpx 0 0 12rpx;
+}
+
+.buy-option .now-buy {
+  background: #009a44;
+  border-radius: 0 12rpx 12rpx 0;
+}
+
+.buy-option>view {
+  width: 180rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  text-align: center;
+}
+
+.top-info {
+  height: 80rpx;
+  background: white;
+}
+
+.top-info .van-icon {
+  font-size: 45rpx;
+}
+
+.shop-operate {
+  padding: 20rpx 20rpx 0rpx;
+}
+
+.shop-operate .info {
+  border-bottom: 1px solid #fbf8fb;
+  padding-bottom: 20rpx;
+}
+
+.select-specs .specs {
+  margin: 25rpx 0;
+}
+
+.select-specs .buy-num {
+  margin: 25rpx 0;
+}
+
+.select-specs .inactive-specs {
+  border: 1px solid #14a24c;
+  color: #14a24c;
+  border-radius: 8rpx;
+  padding: 0 8rpx;
+}
+
+.select-specs text {
+  margin-right: 20rpx;
+}
+
+.select-specs .active-specs {
+  border: 1px solid #14a24c;
+  color: white;
+  background: #87cd7c;
+  border-radius: 8rpx;
+  padding: 0 8rpx;
+}
+
+.similar {
+  margin-top: 10rpx;
+  padding: 20rpx 0 20rpx 20rpx;
+}
+
+.title .left-border {
+  margin-right: 20rpx;
+}
+
+.similar-shops {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.single-shop .photo {
+  width: 179rpx;
+}
+
+.single-shop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.single-shop:nth-child(n+3) {
+  margin-left: 32rpx;
+}
+
+.picture-text {
+  padding: 20rpx;
+  margin-top: 10rpx;
+}
+
+.picture-text .no-content {
+  padding-bottom: 70rpx;
+  height: 1200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture-text .no-content image {
+  height: 338rpx;
+  width: 379rpx;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.real-price {
+  margin-left: 22rpx;
+}
+
+.panic-buying-time {
+  background: #f7c0b7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.item {
+  display: inline-block;
+  width: 34rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  margin: 0rpx 5rpx;
+  color: #fff;
+  font-size: 20rpx !important;
+  text-align: center;
+  background-color: #ff3e1e;
+  border-radius: 2px;
+}
+
+.panic-buying-time .start {
+  display: flex;
+}
+
+.panic-buying-time .remain-num {
+  position: absolute;
+  right: 20rpx;
+  margin-top: 15rpx;
+  font-size: 18rpx;
+}
+
+.panic-buying-time .start .text {
+  margin-right: 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.van-count-down {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  color: white !important;
+}
+
+.recommendlogo {
+  width: 60rpx;
+  height: 20rpx;
+}
+
+.active-label {
+  margin-left: 10rpx;
+  background: red;
+  border-radius: 6rpx;
+  color: white;
+  font-size: 17rpx;
+ 
+  padding: 2rpx 5rpx;
+}
+
+.label>view {
+  display: flex;
+  align-items: center;
+}
+
+.more-info {
+  margin-top: 10rpx;
+  font-size: 19rpx;
+}
+.label-width{width:300rpx;}
+.full-reduce{
+  margin-right:10rpx;
+  font-size:17rpx;border: 2rpx solid red;border-radius:4rpx;color:#999;padding:0 4rpx;
+}
+.goods_label text:nth-child(n+3){
+  /* display: none; */
+}

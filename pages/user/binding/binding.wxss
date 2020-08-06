@@ -1,0 +1,36 @@
+/* pages/user/binding/binding.wxss */
+.binding .top_red{
+  background: #FED8D5;
+  color: #FF3E1E;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.binding .list_box{
+  background: #ffffff;
+}
+.binding .list_box .item{
+  border-bottom: 1rpx solid #F7F6F6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.binding .list_box .item .left{
+  display: flex;
+  align-items: center;
+}
+.binding .list_box .item .left .img{
+  width: 100rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.binding .list_box .item .left image{
+  width: 100%;
+  height: 100%;
+  margin-top: 2rpx;
+}
+.binding .list_box .item .left .btn{
+  padding: 2rpx 10rpx;
+  background: #1EA55A;
+  color: #fff;
+  border-radius: 15rpx;
+}

@@ -1,0 +1,64 @@
+<!--pages/user/account_to_edit/account_to_edit.wxml-->
+<form bindsubmit='editChild'>
+	<view class="forget paddind_lr_20">
+
+		<view class="list paddind_tb_10">
+			<view class="title">账号名称</view>
+			<view class="txt">
+				<input class="username" name="nickname" placeholder='请输入账号名称' value="{{childInfo.nickname}}" />
+			</view>
+		</view>
+
+		<view class="list paddind_tb_10">
+			<view class="title">联系人</view>
+			<view class="txt">
+				<input class="username" name="contact" placeholder='请输入联系人' value="{{childInfo.contact}}" />
+			</view>
+		</view>
+
+		<view class="list paddind_tb_10">
+			<view class="title">手机号码</view>
+			<view class="txt">
+				<input class="username" name="mobile" placeholder='请输入手机号码' type="number" maxlength="11"  value="{{childInfo.phone}}" />
+			</view>
+		</view>
+
+		<view class="list paddind_tb_10">
+			<view class="title">密码</view>
+			<view class="txt">
+				<input class="username" name="password" password placeholder="请设置6位以上的密码(不修改密码不用填)" />
+			</view>
+		</view>
+
+
+		<view class="list list_switch paddind_tb_10">
+			<view class="left">账号启用和禁用</view>
+			<view class="right">
+				<van-switch checked="{{ checked }}" active-color="#009A44" inactive-color="#808080" size="18px" bind:change="onChange" />
+			</view>
+		</view>
+
+		<view class="list paddind_tb_10" bindtap='chooseLocation'>
+			<view class="title">收货地址</view>
+			<view class="txt" style="width:86%;display:flex;justify-content:space-between;align-items:center;">
+				<input class="username" name="address" placeholder='详细地址如:5号楼5层501室内222' value="{{childInfo.address}}" disabled="true"/>
+				   <icon class="iconfont icon-jiantou"></icon>
+			</view>
+		</view>
+
+		<view class="list paddind_tb_10">
+			<view class="title">门牌号</view>
+			<view class="txt">
+				<input class="username" name="details" value="{{childInfo.details}}" />
+			</view>
+		</view>
+
+	</view>
+	<view class="info_btn">
+		<button formType="submit" type='primary'>提交</button>
+	</view>
+	<view class="info_btn">
+		<view style="background:#FF3E1E;" bindtap="delChild">删除</view>
+	</view>
+</form>
+<van-dialog id="van-dialog" />

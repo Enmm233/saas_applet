@@ -1,0 +1,84 @@
+/* pages/account/register/index.wxss */
+
+page {
+  background: white;
+}
+
+.register-info {
+  padding: 0 20rpx;
+}
+
+.register-info>view {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f7f6f6;
+  padding: 20rpx 0 19rpx;
+}
+
+.register-info>view>text {
+  width: 120rpx;
+  color: #808080;
+  font-size: 24rpx;
+}
+
+.register-button {
+  text-align: center;
+  margin-top: 70rpx;
+}
+
+.submit {
+  margin: 0 auto;
+  width: 570rpx;
+  height: 75rpx;
+  line-height:75rpx;
+  /* background: #808080; */
+  border-radius: 12rpx;
+  color: white;
+  font-size: 32rpx;
+}
+
+.now-login {
+  font-size: 24rpx;
+  color: #1a1a1a;
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.font-color {
+  color: #c2c2c2;
+}
+
+.treaty {
+  color: #1ea55a;
+  position: fixed;
+  bottom: 10px;
+  left: calc(50% - 52rpx);
+  font-size: 24rpx;
+}
+
+.getcode {
+  justify-content: space-between;
+}
+
+.getcode .code-value {
+  display: flex;
+  align-items: center;
+}
+
+.getcode .code-value text {
+  color: #808080;
+  width: 120rpx;
+}
+
+.message-code {
+  width: 150rpx;
+  
+  color: white;
+  border-radius: 12rpx;
+  text-align: center;
+}
+.photo-code{position: absolute;right: 20rpx;}
+.photo-code image{width:165rpx;height:61rpx;}
+.photo-code text{color:#808080;margin-left:20rpx;}
+.inactive{background: #808080;}
+.active{background: #1ea55a;}

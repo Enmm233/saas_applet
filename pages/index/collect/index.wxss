@@ -1,0 +1,95 @@
+/* pages/index/collect/index.wxss */
+
+.fix-top {
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+}
+
+.collect-title {
+  padding: 0 20rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.collect-title>view>text{color:red;margin:0 5rpx;}
+.collect-title .van-icon {
+  font-size: 40rpx;
+  margin-top: 2rpx;
+}
+
+.collect-list {
+  font-size: 32rpx;
+}
+
+.clear-all {
+  color: #009a44;
+}
+
+.single-good {
+  min-height: 180rpx;
+  padding: 10rpx 20rpx;
+  margin-top: 10rpx;
+}
+
+.good-name {
+  width: 80%;
+}
+
+.good {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collect-statu .van-icon {
+  width: 34rpx;
+  height: 34rpx;
+  color: #808080;
+  font-size: 40rpx;
+}
+
+.collect-statu .orange {
+  color: orange;
+}
+
+.single-good .photo {
+  margin-right: 20rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-good .img-width {
+  width:242rpx;
+}
+
+.single-good .info-width {
+  flex:1;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.bitmap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.bitmap image {
+  width: 400rpx;
+  height: 300rpx;
+  background: transparent;
+  margin-top: 250rpx;
+}
+.line-hidden {
+  width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+  

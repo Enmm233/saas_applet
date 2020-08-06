@@ -1,0 +1,17 @@
+/* pages/account/treaty/index.wxss */
+
+page {
+  background: white; 
+}
+
+.treaty {
+  font-size: 24rpx;
+  line-height: 30rpx;
+  letter-spacing: 5rpx;
+  text-indent: 40rpx;
+ padding: 20rpx;
+}
+
+view text {
+  display: block;
+}

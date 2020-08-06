@@ -1,0 +1,40 @@
+/* pages/user/bill_detail/bill_detail.wxss */
+.bill_detail .detail{
+  margin-top: 15rpx;
+  background: #ffffff;
+}
+.bill_detail .detail .title{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.bill_detail .detail .blue{
+  color: #02B1E4;
+}
+.bill_detail .detail .green{
+  color: #009A44;
+}
+.bill_detail .detail .txt{
+  font-size: 22rpx;
+  color: #808080;
+}
+.bill_detail .detail .item_title{
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.bill_detail .detail .item{
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bill_detail .detail .item .right{
+  color: #FF3E1E;
+  text-align: end;
+}
+.bill_detail .detail .item .money{
+  width: 100%;
+  text-align: end;
+}
+.bill_detail .detail .item .money text{
+  color: #FF3E1E;
+}

@@ -1,0 +1,33 @@
+<!--pages/user/recharge_list/recharge_list.wxml-->
+<view class="recharge_list">
+  <view class="list_box paddind_lr_20">
+    <view class="item paddind_tb_20" wx:for="{{rechargeList}}" wx:key="xxx">
+      <view class="left">
+        <view wx:if="{{item.type==1}}">
+          <view wx:if="{{item.consume==1}}">订单消费 :{{item.order_sn}}</view>
+          <view wx:if="{{item.consume==0}}">后台充值 :{{item.order_sn}}</view>
+        </view>
+        <view wx:if="{{item.type==2}}">
+          <view>前台充值 :{{item.order_sn}}</view>
+        </view>
+        
+        <view class="time" wx:if="{{item.consume==1}}">消费时间 : {{item.date}}</view>
+        <view class="time" wx:if="{{item.consume==0}}">充值时间 : {{item.date}}</view>
+      </view>
+
+      <view class="right" wx:if="{{item.type==1}}">
+        <text wx:if="{{item.consume==1}}">- {{item.price}}</text>
+        <text style="color:red;" wx:if="{{item.consume==0}}">+ {{item.price}}</text>
+        
+      </view>
+      <view class="right" wx:if="{{item.type==2}}" style="color:red;">
+        <text>+</text>
+        {{item.price}}
+      </view>
+
+    </view>
+  </view>
+  <view style="font-size:20rpx;color:#808080;text-align:center;">
+    <van-loading size="20rpx" text-size="20rpx" wx:if="{{loading}}">正在加载...</van-loading>
+  <view wx:else style="height:40rpx;line-height:40rpx;">已经到底呢！</view></view>
+</view>

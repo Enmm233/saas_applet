@@ -1,0 +1,24 @@
+/* pages/account/select/select.wxss */
+.select{
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.select .btn{
+  width: 60%;
+  padding: 15rpx 0;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  border: 2rpx solid #009A44;
+  margin-bottom: 50rpx;
+}
+.select .btn.green{
+  background:#009A44;
+  color: #ffffff;
+}
+.select .btn.white{
+  color:#009A44;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "vant",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.1.0",
+    "vant-weapp": "^0.5.27"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hongwei-Qiu/neworder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hongwei-Qiu/neworder/issues"
+  },
+  "homepage": "https://github.com/Hongwei-Qiu/neworder#readme",
+  "description": ""
+}

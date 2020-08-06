@@ -1,0 +1,151 @@
+.home .notice image {
+	width: 40rpx;
+	height: 37rpx;
+	display: flex;
+}
+
+.home .ad swiper {
+	padding: 0 20rpx;
+}
+
+.home .notice {
+	padding: 0 20rpx;
+	display: flex;
+	height: 64rpx;
+	align-items: center;
+}
+
+.home .nav text {
+	text-align: center;
+	width: 120rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-top: 17rpx;
+}
+
+.home .notice swiper {
+	height: 40rpx;
+	line-height: 40rpx;
+	width: 100%;
+	margin-left: 20rpx;
+}
+
+.home .navs {
+	padding: 20rpx;
+	margin-top: 10rpx;
+}
+
+.home .nav {
+	justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.home .navtwo {
+	margin-top: 20rpx;
+}
+
+.home .nav>view {
+	margin-top: 20rpx;
+	display: flex;
+	width: 25%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.home .nav image {
+	width: 100rpx;
+	height: 100rpx;
+}
+
+.limit_active {
+	margin-top: 7rpx;
+	padding: 0 20rpx 15rpx;
+}
+
+.limit_active .limit-name {
+	padding: 20rpx 0;
+}
+
+.limit_active .addcart {
+	width: 30rpx;
+	height: 30rpx;
+}
+
+.active_info .image:nth-child(n+2) {
+	margin-left: 31rpx;
+	display: flex;
+	flex-direction: column;
+}
+
+.active_info {
+	display: flex;
+	overflow-x: scroll;
+}
+
+.active_info>view {
+	width: 36%;
+	margin-right: 20rpx;
+	flex-shrink: 0;
+}
+
+.active_info .image .activelogo {
+	width: 80rpx;
+	height: 40rpx;
+}
+
+.active_info .image image {
+	/* width: 179rpx;
+  height: 120rpx; */
+	object-fit: contain;
+}
+
+.active_info .height {
+	height: 270rpx;
+}
+
+.item {
+	display: inline-block;
+	width: 34rpx;
+	height: 24rpx;
+	line-height: 24rpx;
+	margin: 0rpx 5rpx;
+	color: #fff;
+	font-size: 20rpx !important;
+	text-align: center;
+	background-color: #1a1a1a;
+	border-radius: 2px;
+}
+
+.title>text {
+	font-weight: 600;
+	font-size: 30rpx;
+	margin: 0 14rpx;
+}
+
+.more {
+	color: #009a44;
+}
+
+.van-count-down {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.maohao {
+	font-size: inherit;
+	margin-top: -10px;
+}
+
+.banner4 {
+	text-align: center;
+	margin: 15rpx 20rpx 0rpx;
+}
+
+/* .banner4 image{width:708rpx;height:177rpx;border-radius: 12rpx;} */
+.banner4 image {
+	background: none;
+}

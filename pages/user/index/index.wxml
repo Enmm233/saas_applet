@@ -1,0 +1,151 @@
+<!--pages/user/index/index.wxml-->
+<view class="user_box">
+	<view class="user_top paddind_lr_20">
+	
+		<view class="user" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="个人信息">
+			<view class="left" wx:if="{{token}}">
+        <image class="goods_img" wx:if="{{memberInfoData.info.logo}}" src='{{memberInfoData.info.logo }}'></image>
+        <image class="goods_img" wx:if="{{!memberInfoData.info.logo}}" src='{{imgRemote+memberInfoData.member_default }}'></image>
+				<text wx:if="{{memberInfoData.info.nickname != ''}}">{{memberInfoData.info.nickname}}</text>
+				<text wx:if="{{memberInfoData.info.nickname == ''}}">请设置昵称</text>
+			</view> 
+			<view class="left" wx:if="{{!token}}">
+        <image class="goods_img" wx:if="{{memberInfoData.info.logo}}" src='{{memberInfoData.info.logo }}'></image>
+        <image class="goods_img" wx:if="{{!memberInfoData.info.logo}}" src='{{imgRemote+memberInfoData.member_default }}'></image>
+				<text>请先登录</text>
+			</view> 
+			<view class="right">
+				<icon class="iconfont icon-jiantou"></icon>
+			</view>
+		</view>
+
+		<view class="user" wx:if="{{is_child == 1}}">
+			<view class="left" wx:if="{{token}}">
+        <image class="goods_img" wx:if="{{memberInfoData.info.logo}}" src='{{memberInfoData.info.logo }}'></image>
+        <image class="goods_img" wx:if="{{!memberInfoData.info.logo}}" src='{{imgRemote+memberInfoData.member_default }}'></image>
+
+				<text wx:if="{{memberInfoData.info.nickname != ''}}">{{memberInfoData.info.nickname}}</text>
+				<text wx:if="{{memberInfoData.info.nickname == ''}}">请设置昵称</text>
+			</view>
+
+			<view class="left" wx:if="{{!token}}">
+
+        <image class="goods_img" wx:if="{{memberInfoData.info.logo}}" src='{{memberInfoData.info.logo }}'></image>
+        <image class="goods_img" wx:if="{{!memberInfoData.info.logo}}" src='{{memberInfoData.info.wx_avatar }}'></image>
+
+
+        <text wx:if="{{token}}">{{memberInfoData.info.nickname}}</text>
+        <text wx:if="{{!token}}">请先登录</text>
+      </view>
+    </view>
+
+
+    <view class="user_card">
+      <view class="card_item" bindtap="getUserInfo" data-item="推荐">
+        <image class="goods_img" src="{{prefix+'recommand.png'}}" mode="aspectFit"></image>
+        推荐
+      </view>
+      <view class="card_item" bindtap="getUserInfo" data-item="地址">
+        <image class="goods_img" src="{{prefix+'address.png'}}" mode="aspectFit"></image>
+        地址
+      </view>
+      <view class="card_item" bindtap="getUserInfo" data-item="修改密码">
+        <image class="goods_img" src="{{prefix+'password.png'}}" mode="aspectFit"></image>
+        密码
+      </view>
+    </view>
+  </view>
+  <view class="user_list paddind_lr_20">
+    <view class="list_item" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="账号管理">
+      <view class="left">
+        <icon class="iconfont icon-08_zizhanghaoguanli" style="color:#3DABFF;"></icon>
+        <text>账号管理</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+
+    <view class="list_item" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="开具发票">
+      <view class="left">
+        <icon class="iconfont icon-huabanfuben" style="color:#FF9C00;"></icon>
+        <text>开具发票</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+
+    <view class="list_item" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="账单记录">
+      <view class="left">
+        <icon class="iconfont icon-fapiao" style="color:#FFF000;"></icon>
+        <text>账单记录</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+
+    
+    <view class="list_item" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="购买记录">
+      <view class="left">
+        <icon class="iconfont icon-buy-fill" style="color:#FFAB9A;"></icon>
+        <text>购买记录</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+
+   <view class="list_item" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="充值">
+      <view class="left">
+        <icon class="iconfont icon-qianbao" style="color:#2DC4B4;"></icon>
+        <text>充值</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+    <view class="list_item" wx:if="{{is_child != 1}}" bindtap="getUserInfo" data-item="现金劵">
+      <view class="left">
+        <icon class="iconfont icon-juan" style="color:#FF6A36;"></icon>
+        <text>现金劵</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+    <view class="list_item" wx:if="{{is_child == 0 && is_miniBind == 0}}">
+      <view class="left">
+        <icon class="iconfont icon-weixin" style="color:#26DD5B;"></icon>
+        <button open-type="getUserInfo" bindgetuserinfo='bindWeChat'>绑定微信</button>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+ <view class="list_item" wx:if="{{is_child == 0 && is_miniBind == 1}}">
+      <view class="left">
+        <icon class="iconfont icon-weixin" style="color:#26DD5B;"></icon>
+        <button open-type="getUserInfo" bindgetuserinfo='bindWeChat'>改绑微信</button>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+    <view class="list_item" bindtap="getUserInfo" data-item="退出登录">
+      <view class="left">
+        <icon class="iconfont icon-tuichu" style="color:#ADDB8C;"></icon>
+        <text>退出登录</text>
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-jiantou"></icon>
+      </view>
+    </view>
+
+
+  </view>
+</view>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<footer activeIndex="{{activeIndex}}"></footer>

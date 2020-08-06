@@ -1,0 +1,70 @@
+<!--pages/user/cashdetail/index.wxml-->
+<wxs module="rank">
+  var indexof = function(index) {
+    switch (index) {
+      case 2:
+        return 'green-font';
+        break;
+      case 1:
+        return 'blue-font';
+        break;
+      case 3:
+        return 'pink-font';
+        break;
+      case 4:
+        return "gray-font";
+        break;
+    }
+  };
+  module.exports.style = indexof;
+</wxs>
+<view class="first-part" >
+  <text wx:if="{{detailList.coupons_status==2}}">正常</text>
+  <text wx:if="{{detailList.coupons_status==1}}">未开始</text>
+  <text wx:if="{{detailList.coupons_status==3}}">已使用</text>
+  <text wx:if="{{detailList.coupons_status==4}}">已过期</text>
+
+  <view>
+    <text>标签</text>
+    <view class="label">
+      <text wx:for="{{detailList.coupons_label}}" wx:key="key" class="twelve {{rank.style(detailList.coupons_status)}}">{{item}}</text>
+    </view>
+  </view>
+  <view>
+    <text>名称</text>
+    <text>{{detailList.coupons_title}}</text>
+  </view>
+  <view>
+    <text>面值</text>
+    <text>{{detailList.money}}元</text>
+  </view>
+  <view>
+    <text>余额</text>
+    <text>{{detailList.residue}}元</text>
+  </view>
+  <view>
+    <text>开始时间</text>
+    <text>{{detailList.start_time}}</text>
+  </view>
+  <view>
+    <text>结束时间</text>
+    <text>{{detailList.expire_time}}</text>
+  </view>
+  <view>
+    <text>描　　述</text>
+    <text>{{detailList.describe}}</text>
+  </view>
+</view>
+<view class="middle"></view>
+<view class="two-part">
+  <view class="record">使用记录</view>
+  <view wx:if="{{detailList.details.length==0}}" class="photo">
+    <image src="{{prefix+'cash_record.png'}}" mode="aspectFit"></image>
+    <text class="block ten">无记录</text>
+  </view>
+  <view  wx:for="{{detailList.details}}" wx:key="key" class="text-info">
+    <text>{{item.order_sn}}</text>
+    <text>{{item.spend}}元</text>
+    <text>{{item.created_at}}</text>
+  </view>
+</view>

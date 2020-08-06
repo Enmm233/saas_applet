@@ -1,0 +1,112 @@
+<!--pages/classify/index/index.wxml-->
+<search></search>
+
+<view class="flex classify">
+
+	<!-- 二级分类名字 -->
+	<view class="second-cate">
+
+		<view wx:for="{{secondCate}}" wx:key="index" bindtap="secondCate" data-secondid="{{[{index:index,id:item.id}]}}" class='cate-name align-center {{secondIndex ==index ? "white" : ""}}'>
+			<icon wx:if="{{secondIndex==index}}"></icon>
+			<text class="line-hidden" style="width:140rpx">{{item.name}}</text>
+
+		</view>
+	</view>
+	<!-- 一级分类 -->
+	<view class="first-cate">
+
+		<view class="flex more-title">
+			<!-- <view class="first-title">
+        <text wx:for="{{firstCate}}" wx:key="index" bindtap="firstCate" data-firstid="{{item.id}}" class='{{firstId == item.id ? "active-first" : ""}}'>{{item.name}}</text>
+      </view> -->
+			<van-tabs active="{{ activetitle }}" bind:change="firstCates" style="width:90%;">
+				<van-tab wx:for="{{firstCate}}" wx:key="index" data-firstid="{{item.id}}" title="{{item.name}}"></van-tab>
+
+			</van-tabs>
+			<icon class="iconfont icon-more flex" bindtap="showAll"></icon>
+		</view>
+		<view class="all-goods" wx:if="{{list.length}}">
+			<view class="cate-info flex" wx:for="{{list}}" wx:key="index">
+				<view class="" style="width:200rpx;margin:0 20rpx;" bindtap="detailUrl" data-id="{{item.id}}">
+					<image src="{{logo}}" class="logo" mode="aspectFit"></image>
+					<van-image use-error-slot src="{{item.img==''?imgRemote+item_default:item.img}}" width="200rpx" height="152rpx" fit="contain">
+						<image slot="error" src="{{imgRemote+item_default}}" mode="aspectFit"></image>
+					</van-image>
+				</view>
+				<view class="single-good">
+					<view style="width:90%;" bindtap="detailUrl" data-id="{{item.id}}">
+						<view class="twelve">{{item.title}}</view>
+						<view class="gray-font line-hidden ten">{{item.describle}}</view>
+					</view>
+
+					<view class="flex-left-right buy">
+						<view class="" bindtap="detailUrl" data-id="{{item.id}}">
+							<text class="red_tag" wx:if="{{item.label.length!=0}}" wx:for="{{item.label}}" wx:key="key">{{item}}</text>
+							<block wx:if="{{token}}">
+								<block wx:if="{{is_look==0}}">***</block>
+								<block wx:else>
+									<view wx:if="{{item.attr.length==0}}" class="red-font twelve">
+										<text class="rmb">￥</text>
+										<text>{{item.price}}/{{item.unit}}</text>
+									</view>
+									<view wx:else class="gray-font twelve line-hidden" style="width:300rpx">
+										<text class="rmb red_font">￥</text>
+										<text  class="red_font">{{item.area_price}}/{{item.unit}}</text>
+										<text class="gray-font">(多规格)</text>
+									</view>
+								</block>
+							</block>
+
+							<block wx:else>
+								<view wx:if="{{item.attr.length==0}}" class="red-font twelve">
+									<text class="rmb">￥</text>
+									<text>{{item.price}}/{{item.unit}}</text>
+								</view>
+								<view wx:else class="gray-font twelve line-hidden" style="width:300rpx">
+									<text class="rmb red_font">￥</text>
+									<text  class="red_font">{{item.area_price}}/{{item.unit}}</text>
+									<text class="gray-font">(多规格)</text>
+								</view>
+							</block>
+
+						</view>
+
+						<block wx:if="{{item.attr.length==0}}">
+							<view style="height:32rpx;">
+								<van-stepper wx:if="{{item.cart_num!=0}}" value="{{item.cart_num}}" data-item="{{[item,index,item.cart_num]}}" bind:plus="plus" bind:minus="minus" bindtap="keyFocus" min="0" disable-input />
+								<image wx:else src="{{prefix+'plus.png'}}" class="addcart" bindtap="addcart" data-item="{{[item,index]}}"></image>
+							</view>
+						</block>
+						<block wx:else>
+							<image bindtap="showCart" src="{{prefix+'addcart.png'}}" data-item="{{[item,{shuiyin:shuiyin,logo:logo,item_default:item_default}]}}" mode="aspectFit" class="addcart"></image>
+						</block>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view wx:else class="bitmap">
+			<image src="{{prefix+'no_content.png'}}"></image>
+		</view>
+		<view class="gray-font ten bottom-text" wx:if="{{list.length}}">
+			<van-loading size="20rpx" text-size="20rpx" wx:if="{{loading==true}}">正在加载...</van-loading>
+			<view wx:if="{{loading==false}}" bindtap="nextSecond"> <rich-text nodes="{{textInfo}}"></rich-text></view>
+		</view>
+	</view>
+
+</view>
+<van-popup show="{{ classname }}" position="right" bind:close="onClose">
+	<view class="all-classify">
+		<view class="all">全部分类</view>
+		<view class="cate-name">
+			<view wx:for="{{firstCate}}" wx:key="key" bindtap="selectSpec" data-firstid="{{item.id}}" class='{{specId === item.id ? "active-cate" : ""}}'>{{item.name}}</view>
+		</view>
+		<view class="operate">
+			<text class="cancel" bindtap="cancel">取消</text>
+			<text class="determine" bindtap="determine">确定</text>
+		</view>
+	</view>
+</van-popup>
+<van-toast id="van-toast" />
+<add-cart show="{{cart}}" cartInfo="{{cartInfos}}"></add-cart>
+<key-board isHidden="{{show}}" bind:enterKey="enterKey"></key-board>
+<footer activeIndex="{{activeIndex}}"></footer>

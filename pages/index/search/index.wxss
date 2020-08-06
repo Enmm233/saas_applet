@@ -1,0 +1,160 @@
+/* pages/index/search/index.wxss */
+
+page {
+  /* background: white; */
+}
+
+.search-top {
+  display: flex;
+  background: white;
+  align-items: center;
+  justify-content: space-between;
+  /* padding-top: 20rpx; */
+  /* padding-bottom: 20rpx; */
+  padding: 20rpx 15rpx;
+}
+
+.icon-yuyin {
+  font-size: 40rpx;
+  color: #808080;
+}
+
+.right-search {
+  display: flex;
+}
+
+.search-key input {
+  width: 100%;
+  padding: 5rpx;
+}
+
+.search-key {
+  padding: 0 10rpx;
+  border-radius: 25rpx;
+  width: 525rpx;
+  padding: 0 15rpx;
+  border-radius: 32rpx;
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+.search-button {
+  color: #009a44;
+  font-size: 26rpx;
+}
+
+.icon-yuyin {
+  color: #808080；;
+}
+
+.bitmap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+.bitmap image {
+  width: 359rpx;
+  height: 338rpx;
+  margin: 200rpx 25%;
+}
+
+.keywords {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.keywords .keywords_item{
+  padding: 0 20rpx;
+}
+
+.hot-search {
+  display: block;
+}
+
+.keywords .title {
+  border-radius: 6rpx;
+  color: grey;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 3px;
+  display: inline-block;
+  background: #f2f2f2;
+  margin: 5px 10px 0 0;
+}
+
+.plus {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.search-shops .text-info {
+  width: 344rpx;
+}
+
+.search-shops>view:nth-child(n+2) {
+  margin-top: 10rpx;
+}
+
+.search-shops .des {
+  font-size: 20rpx;
+}
+
+.sign-good>view:first-child {
+  width: 200rpx;
+}
+
+.sign-good {
+  background: white;
+  min-height: 163rpx;
+  display: flex;padding: 10rpx 20rpx;
+}
+
+
+.sign-good .image {
+  /* display: flex;
+  align-items: center; */
+  width: 160rpx;
+  height: 140rpx;
+}
+
+.info {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.start-speech{text-align: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+  line-height: 60rpx;
+color: #009A44;
+height: 100%;
+justify-content: center;
+
+}
+.err-speech{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+  line-height: 60rpx;
+color: #009A44;
+height: 100%;
+justify-content: center;
+
+}
+.err-speech .icon-yuyin{
+  color:white;
+  background:#009A44;
+ font-size:40rpx; 
+  width:80rpx;height:80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius:50%;
+}

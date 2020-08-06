@@ -1,0 +1,50 @@
+<!--pages/order/play/play.wxml-->
+  <view class="play">
+    <view class="top_txt">
+				如出现下单端账号与支付账号不一样，请到个人中心更改绑定微信
+    </view>
+    <view class="list_box paddind_lr_20">
+
+      <view class="item paddind_tb_20">
+        <view>订单编号</view>
+        <view>{{payOrder.order_sn}}</view>
+      </view>
+
+      <view class="item paddind_tb_20">
+        <view>配送时间</view>
+        <view>{{payOrder.send_time}}</view>
+      </view>
+
+      <view class="item paddind_tb_20">
+        <view>订单金额</view>
+        <view>{{payOrder.total_fee}}</view>
+      </view>
+
+      <view class="item paddind_tb_20">
+        <view>我的余额</view>
+        <view class="money">¥ {{payOrder.myBalance}}</view>
+      </view>
+
+      <view class="item paddind_tb_20">
+        <view>余额支付</view>
+        <view class="money">¥ {{payOrder.payBalance}}</view>
+      </view>
+
+      <view class="item paddind_tb_20">
+        <view>微信支付</view>
+        <view class="money">¥ {{payOrder.payWx}}</view>
+      </view>
+
+    </view>
+    <view class="bottom_txt paddind_lr_20 paddind_tb_20">
+				注：平台不会以订单异常，系统升级等理由要求您点击任何链接进行退款操作，请提高警惕。
+    </view>
+  </view>
+	<view class="info_btn">
+		<view wx:if="{{payOrder.payType == 2}}" bindtap='querenchongzhi'>确认支付</view>
+		<view wx:if="{{payOrder.payType == 1}}" bindtap='goPay'>确认支付</view>
+	</view>
+	<view class="info_btn">
+		<view style="background:#808080;" bindtap='order'>返回订单</view>
+	</view>
+  <van-toast id="van-toast" />

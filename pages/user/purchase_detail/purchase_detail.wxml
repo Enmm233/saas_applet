@@ -1,0 +1,44 @@
+<!--pages/user/purchase_detail/purchase_detail.wxml-->
+<view class="purchase_detail">
+		<view class="record_box">
+			<view class="img">
+				<van-image use-error-slot src="{{moneyListInfo.item.item_url}}" width="150rpx" height="150rpx" fit="contain">
+				</van-image>
+			</view>
+			<view class="record_detail">
+				<view class="top">
+					<view class="left">
+						<view class="title">
+							{{moneyListInfo.item.item_title}}
+						</view>
+						<view class="txt">
+							{{moneyListInfo.item.describe}}                
+						</view>
+						<view class="txt" wx:if="{{moneyListInfo.item.attr_title}}">
+							({{moneyListInfo.item.attr_title}})           
+						</view>
+					</view>
+				</view>
+				<view class="bottom">
+	                    合计：<text>¥{{moneyListInfo.total}}</text>
+				</view>
+			</view>
+		</view>
+	<view class="pur_list">
+		<view class="item" wx:for="{{moneyListInfo.list}}" wx:key="xxx">
+			<view class="left">
+				<view class="time">
+					{{item.send_time}}
+				</view>
+				<view class="num">
+					<text>数量：{{item.nums}}{{detailItem.unit}}</text>
+					<text>单价：¥{{item.price}}</text>
+				</view>
+			</view>
+			<view class="right">
+				小计：¥{{item.subtotal}}
+			</view>
+		</view>
+	</view>
+</view>
+

@@ -1,0 +1,123 @@
+<!--pages/index/limitactive/index.wxml-->
+<!-- <van-sticky> -->
+<!-- 
+  <view class="top-title align-center" bindtap="indexUrl">
+    <van-icon name="arrow-left" />
+    <view class="name">限时抢购</view>
+  </view> -->
+
+<view class="secondsha-img">
+	<image src="{{prefix+'secondsha.png'}}"></image>
+</view>
+<view class="flex">
+	<view wx:for="{{activeList}}" class="limit-time" wx:key="key" bindtap="showChecked" data-item="{{[index,item.id]}}">
+
+		<view class='{{activeIndex === index ? "active" : "time"}}' wx:if="{{item.status==1}}">
+			<view>距离结束</view>
+			<view style="height:40rpx;">
+				<van-count-down use-slot time="{{ item.timeRemain*1000 }}" bind:change="onChange">
+					<text class="item" wx:if="{{timeData.days>=1}}">{{ timeData.days*24 +timeData.hours}}</text>
+					<text class="item" wx:if="{{timeData.hours<10&&timeData.days<1}}">0{{ timeData.hours}}</text>
+					<text class="item" wx:if="{{timeData.hours>=10&&timeData.days<1}}">{{ timeData.hours}}</text> :
+					<text class="item"><text wx:if="{{timeData.minutes<10}}">0</text>{{ timeData.minutes }}</text>:
+					<text class="item"><text wx:if="{{timeData.seconds<10}}">0</text>{{ timeData.seconds }}</text>
+				</van-count-down>
+			</view>
+
+		</view>
+		<view wx:else class='{{activeIndex === index ? "active" : "time"}}'>
+			<view>即将开始</view>
+			<view class="not-start">
+				{{item.day}}{{item.hour}}
+			</view>
+		</view>
+		<view class='{{activeIndex === index ? "delta" : ""}}'>
+			<view></view>
+		</view>
+	</view>
+</view>
+<!-- </van-sticky> -->
+
+<!-- 活动商品信息 -->
+<view wx:for="{{goodsList}}" wx:key="key" class="flex shops white">
+	<view bindtap='detailUrl' data-id="{{item.item_id}}">
+		<image class="logo" src="{{logo}}" mode="aspectFit" wx:if="{{logo&&shuiyin==1}}"></image>
+		<van-image use-error-slot src="{{item.img==''?imgRemote+item_default:item.img}}" width="200rpx" height="200rpx" fit="contain">
+			<image slot="error" src="{{ imgRemote+item_default}}" mode="aspectFit"></image>
+		</van-image>
+
+		<block wx:if="{{item.num_limit>0}}">
+			<view class="circle-no" wx:if="{{item.activity_inventory<=item.cart_num}}">
+				<text>抢光了</text>
+			</view>
+		</block>
+		<block wx:else>
+			<view class="circle-no" wx:if="{{item.activity_num-item.cart_num==0}}">
+				<text>抢光了</text>
+			</view>
+		</block>
+	</view>
+	<view class="active-info">
+		<view class="attr-info" bindtap='detailUrl' data-id="{{item.item_id}}">
+			<view class="shop-title">{{item.item_title}}</view>
+			<view class="describle line-hidden">{{item.attr_title}}</view>
+		</view>
+		<view class="flex-left-right">
+			<view bindtap='detailUrl' data-id="{{item.item_id}}" style="width:350rpx">
+				<view class="discount line-hidden">
+					<view class="align-center">
+						<text class="red_tag" wx:for="{{item.label}}" wx:key="key">{{item}}</text>
+						<block >
+							<text class="red_tag">省 </text>
+							<text class="red-font">{{item.difference}}</text>
+						</block>
+						<text class="remain gray-font">剩余：{{item.activity_num-item.cart_num}}</text>
+					</view>
+
+				</view>
+				<view class="align-bottom">
+					<view class="red_font">
+						<text class="rmb">￥</text>
+						<text>{{item.activity_price}}/{{item.unit}}</text>
+					</view>
+					<text class="ten through">¥{{item.price}}/{{item.unit}}</text>
+
+				</view>
+			</view>
+			<view>
+				<view style="height:32rpx;" wx:if="{{activeList[activeIndex].status==1}}">
+					<block wx:if="{{item.num_limit>0}}">
+						<block wx:if="{{item.activity_inventory<=item.cart_num}}">
+							<text class="no-good">已抢完</text>
+						</block>
+						<block wx:else>
+							<van-stepper wx:if="{{item.cart_num!=0}}" value="{{item.cart_num}}" data-item="{{[item,index,item.cart_num]}}"
+							 bind:plus="plus" bind:minus="minus" bindtap="keyFocus" min="0" disable-input />
+							<image wx:else src="{{prefix+'plus.png'}}" class="addcart" bindtap="addcart" data-item="{{[item,index]}}"></image>
+						</block>
+					</block>
+					<block wx:else>
+						<block wx:if="{{item.activity_num-item.cart_num==0}}">
+							<text class="no-good">已抢完</text>
+						</block>
+						<block wx:else>
+							<van-stepper wx:if="{{item.cart_num!=0}}" value="{{item.cart_num}}" data-item="{{[item,index,item.cart_num]}}"
+							 bind:plus="plus" bind:minus="minus" bindtap="keyFocus" min="0" disable-input />
+							<image wx:else src="{{prefix+'plus.png'}}" class="addcart" bindtap="addcart" data-item="{{[item,index]}}"></image>
+						</block>
+					</block>
+
+
+
+				</view>
+				<view wx:else class="now-start">即将开始</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+<view class="message gray-font twelve">已经到底呢！</view>
+<van-toast id="van-toast" />
+<back-top showTop="{{showTop}}"></back-top>
+<key-board isHidden="{{statu}}" bind:enterKey="enterKey"></key-board>

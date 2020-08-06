@@ -1,0 +1,87 @@
+<!--pages/index/collect/index.wxml-->
+<view class="fix-top">
+  <view class="collect-title white">
+    <!-- <van-icon name="arrow-left" bindtap="back" />
+    <text class="collect-list weight">收藏列表</text> -->
+    <view>共<text>{{list.length}}</text>件商品</view>
+    <text class="fourteen clear-all" bindtap="clearCollect">清空</text>
+  </view>
+</view>
+<view style="height:80rpx;"></view>
+<view class="flex single-good white" wx:for="{{list}}" wx:key="key">
+  <view class="img-width" bindtap="detailUrl" data-id="{{item.id}}">
+    <image class="logo" src="{{logo}}" wx:if="{{logo&&shuiyin==1}}" mode="aspectFit"></image>
+    <view class="photo">
+      <van-image use-error-slot src="{{item.img==''?imgRemote+item_default:item.img}}" width="240rpx" height="152rpx" fit="contain">
+        <image slot="error" src="{{imgRemote+item_default}}"></image>
+      </van-image>
+    </view>
+
+  </view>
+
+  <view class="info-width">
+    <view class="flex good">
+      <view class="good-name" bindtap="detailUrl" data-id="{{item.id}}">
+        <view class="twelve">{{item.title}}</view>
+        <view class="ten gray-font line-hidden" wx:if="{{item.describe}}"> {{item.describe}}</view>
+      </view>
+      <view class="collect-statu">
+        <van-icon name="star" color="orange" size="40rpx" wx:if="{{item.collect_status==2}}" bindtap="collect" data-id="{{item.id}}" data-index="{{index}}"/>
+        <!-- <van-icon name="star" /> -->
+      </view>
+    </view>
+    <view class="flex-left-right">
+      <view bindtap="detailUrl" data-id="{{item.id}}">
+        <text class="red_tag" wx:for="{{item.label}}" wx:key="key" wx:if="{{item.label.length!=0}}">{{item}}</text>
+        <block wx:if="{{is_look==1}}">
+          <block wx:if="{{item.attr.length==0}}">
+            <view class="twelve red-font" wx:if="{{item.is_activity==1}}">
+              <block wx:if="{{item.activity_num-item.cart_num>=0}}">
+                <text class="rmb">￥</text>{{item.activity_price}}/{{item.unit}}
+                <text class="gray-font through">￥{{item.price}}</text>
+              </block>
+              <block wx:else>
+                <text class="rmb">￥</text>{{item.price}}/{{item.unit}}</block>
+
+            </view>
+            <view wx:else class="twelve red-font">
+              <text class="rmb">￥</text>{{item.price}}/{{item.unit}}</view>
+          </block>
+          <block wx:else>
+            <view class="twelve red-font">
+              <text class="rmb">￥</text>{{item.area_price}}
+              <text class="gray-font">(多规格)</text>
+            </view>
+          </block>
+        </block>
+        <block wx:else>
+          <view class="twelve red-font">
+            ***</view>
+        </block>
+      </view>
+      <block wx:if="{{item.attr.length==0}}">
+        <view style="height:32rpx;">
+
+          <van-stepper wx:if="{{item.cart_num!=0}}" 
+          value="{{item.cart_num}}" data-item="{{[item,index,item.cart_num]}}" bind:plus="plus" bind:minus="minus" bindtap="keyFocus" min="0" disable-input />
+
+          <image wx:else src="{{prefix+'plus.png'}}" class="addcart" bindtap="addcart" data-item="{{[item,index]}}"></image>
+        </view>
+      </block>
+      <block wx:else>
+        <image bindtap="showCart" src="{{prefix+'addcart.png'}}" data-item="{{[item,{shuiyin:shuiyin,logo:logo,item_default:item_default}]}}" mode="aspectFit" class="addcart"></image>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="bitmap" wx:if="{{list.length==0}}">
+  <image src="{{prefix+'no_content.png'}}" mode="aspectFit"></image>
+</view>
+<view class="bottom-text">
+  <van-loading size="16rpx" wx:if="{{showLoad==true&&list.length!=0}}">加载中...</van-loading>
+  <text class="twelve"  wx:if="{{showLoad==false&&list.length!=0}}">没有更多呢</text>
+</view>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<add-cart show="{{cart}}" cartInfo="{{cartInfos}}"></add-cart>
+<key-board isHidden="{{show}}" bind:enterKey="enterKey"></key-board>

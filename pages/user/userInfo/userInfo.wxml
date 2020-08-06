@@ -1,0 +1,47 @@
+<!--pages/user/userInfo/userInfo.wxml-->
+<view class="user_info">
+  <view class="info_list paddind_lr_20">
+    <view class="left">头像</view>
+    <view class="right">
+      <image class="goods_img" wx:if="{{memberInfoData.info.logo}}" src='{{memberInfoData.info.logo }}' mode='scaleToFill' bindtap="selectImg"></image>
+      <image class="goods_img" wx:if="{{!memberInfoData.info.logo}}" src='{{imgRemote}}{{memberInfoData.member_default }}' bindtap="selectImg"></image>
+      <icon class="iconfont icon-jiantou"></icon>
+    </view>
+  </view>
+
+  <view class="list paddind_lr_20">
+    <view class="left">单位名称</view>
+    <view class="right">
+      <input class="username" value="{{memberInfoData.info.nickname}}"   bindinput='bindnickname'/>
+    </view>
+  </view>
+
+  <view class="info_list paddind_lr_20" bindtap="bindmobile">
+    <view class="left">绑定手机号</view>
+    <view class="right">
+      {{phone}} <icon class="iconfont icon-jiantou"></icon>
+    </view>
+  </view>
+  
+  <view class="list paddind_lr_20" wx:if="{{memberInfoData.info.is_password != 1}}">
+    <view class="left">密码</view>
+    <view class="right">
+      <input class="username" type="password" placeholder="请输入六位数以上的密码"/>
+    </view>
+  </view>
+  
+  <view class="list paddind_lr_20" wx:if="{{memberInfoData.info.is_password != 1}}">
+    <view class="left">确认密码</view>
+    <view class="right">
+      <input class="username" type="password" placeholder="请再次确认登录密码"/>
+    </view>
+  </view>
+
+
+  <view class="info_btn">
+    <view bindtap="updateName">保存</view>
+  </view>
+
+</view>
+<van-toast id="van-toast" />
+

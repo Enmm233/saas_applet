@@ -1,0 +1,26 @@
+<!--components/keyBoard/index.wxml-->
+
+<view hidden="{{isHidden}}" class="top-z-index">
+   <view class="mask" bindtap="cancel"></view>
+  <view class="key_board">
+   <view class="input">{{val}}</view>
+
+    <view class="option">
+      <view class="montage">
+        <view wx:for="{{9}}" wx:key="index" bindtap="montage" data-num="{{index+1}}" >{{index+1}}</view>
+        <view bindtap="montage" data-num="{{0}}" >0</view>
+        <view bindtap="montage" data-num="{{'.'}}" >.</view>
+        <view class="delete" bindtap="delete">
+          <image src="../../images/shanchu.png" mode="aspectFit"></image>
+        </view>
+      </view>
+
+      <view class="operate">
+        <view bindtap="clean">清除</view>
+        <view bindtap="cancel">取消</view>
+        <view bindtap="confirm">确认</view>
+      </view>
+    </view>
+  </view>
+
+</view>

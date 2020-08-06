@@ -1,0 +1,28 @@
+/* pages/user/address/address.wxss */
+.address{
+  margin-top: 10rpx;
+  margin-bottom: 80rpx;
+}
+.address .list_box{
+  background: #fff;
+}
+.address .list_box .item{
+  display: flex;
+  align-items: center;
+  /* border-bottom: 1rpx solid #F7F6F6; */
+}
+.address .list_box .item_address{
+  justify-content: space-between;
+}
+.address .list_box .item input{
+  padding: 0;
+  margin-top: 1rpx;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.address .list_box .item .title{
+  color: #808080;
+  margin-right: 20rpx;
+}

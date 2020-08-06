@@ -1,0 +1,38 @@
+<!--pages/index/newfeedbakck/newfeedbakck.wxml-->
+<form bindsubmit='feedBack'>
+  <view class='xp-con'>
+    <textarea  bindlongpress="showPhoneKey" 
+    focus="{{status}}"
+    maxlength="50"
+    bindinput="getLength"
+    show-confirm-bar="{{false}}" placeholder='商城没有您要的商品？请提供资料我们帮您找...' name="contents"> </textarea>
+    <view class="font_length">{{fontLength}}/50</view>
+  </view>
+
+  <view class='xp-sc'>
+    <block wx:for="{{img}}" wx:if="{{img!=''}}" wx:key="xxx">
+      <view class="select-photo">
+        
+          <van-icon name="cross" class='delete-icon' bindtap="deletePhoto" data-item="{{index}}" />
+       
+        <image class='xp-sc-img' src="{{item.src}}"></image>
+
+      </view>
+
+
+    </block>
+
+    <view class='xp-sc-left' bindtap='uploadImg' wx:if="{{img.length<3}}">
+
+      <image src="{{prefix+'feedback.png'}}" style="width:80rpx;height:80rpx;"></image>
+    </view>
+    <view class='xp-sc-right' >
+      (最多上传3张照片)
+    </view>
+
+  </view>
+  <view class='xp-tj'>
+    <button form-type='submit'>提交</button>
+  </view>
+</form>
+<van-toast id="van-toast" />

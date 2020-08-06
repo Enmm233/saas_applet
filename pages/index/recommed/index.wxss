@@ -1,0 +1,35 @@
+/* pages/index/recommed/index.wxss */
+
+.plus {
+  width: 24rpx;
+  height: 24rpx;
+}
+.photo>view{display: flex;align-items: center;height:100%;}
+.single-good {
+  padding: 10rpx 20rpx;
+  min-height: 180rpx;
+}
+
+.single-good:nth-child(n+2) {
+  margin-top: 10rpx;
+}
+
+.good-name {
+  width: 80%;
+}
+
+.photo {
+  margin: 0 20rpx 0 0;
+  width: 242rpx;
+}
+
+.good-info {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bitmap image{height:100rpx;background: transparent;}
+.flex-left-right{
+  width: 440rpx;
+}

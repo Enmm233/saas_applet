@@ -1,0 +1,53 @@
+<!--pages/account/login/index.wxml-->
+<!-- <view class="back">
+  <van-icon name="arrow-left" />
+</view> -->
+
+<!-- 店家logo -->
+<view class="shop-logo">
+	<image src="{{logo}}" mode="aspectFit" wx:if="{{logo}}"></image>
+</view>
+
+<!-- 账号登录 -->
+<form bindsubmit="login">
+	<view class="account-login">
+		<view class="align-center content">
+			<view class="iconfont icon-yonghu"></view>
+			<input type="number" maxlength="11" name="mobile" placeholder="请输入手机号码" placeholder-class="font-color"></input>
+		</view>
+		<view class="align-center content">
+			<view class="iconfont icon-mima54"></view>
+			<input password type="text" name="pwd" placeholder="请输入密码" placeholder-class="font-color"></input>
+		</view>
+		<view class="login-button">
+			<button formType="submit">登录</button>
+		</view>
+		<view class="flex-left-right">
+			<text class="fourteen" bindtap="registerUrl">立即注册</text>
+			<text class="fourteen" bindtap="forgetUrl">忘记密码？</text>
+		</view>
+
+	</view>
+</form>
+
+<!-- 微信登录 -->
+<view class="wechat-login">
+	<van-divider contentPosition="center">其他登录</van-divider>
+	
+		<view class="weixin">
+			<!-- <view class="wechat"> -->
+      <button open-type="getUserInfo" bindgetuserinfo="bindWeChat">
+				<view class="iconfont icon-weixin"></view>
+        </button>
+			<!-- </view> -->
+			<view class="twelve">微信登录</view>
+      
+</view>
+
+<view class="treaty" bindtap="treatyUrl">
+	已阅读并同意
+	<text>注册协议</text>
+</view>
+</view>
+<!-- 提示 -->
+<van-toast id="van-toast" />

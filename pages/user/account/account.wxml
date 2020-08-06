@@ -1,0 +1,25 @@
+<!--pages/user/account/account.wxml-->
+<view class="account">
+
+  <view class="account_list paddind_lr_20 paddind_tb_20" wx:for="{{childInfo}}" wx:key="xxx" bindtap='editChild' data-index="{{index}}">
+    <view class="left">
+      <view class="name">
+        账号名称：{{item.nickname}}
+      </view>
+      <view class="sddress">
+        收货地址：{{item.address}}
+      </view>
+    </view>
+    <view class="right">
+      <image class="goods_img" src="{{prefix+'edit.png'}}" mode="aspectFit"></image>
+    </view>
+  </view>
+  
+  <view class="img_box" wx:if="{{show}}">
+    <image src="{{prefix+'no_content.png'}}"></image>
+  </view>
+
+</view>
+<view class="add_btn">
+  <view bindtap="addaccount">新增账号</view>
+</view> 

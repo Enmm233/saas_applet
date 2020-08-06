@@ -1,0 +1,59 @@
+/* pages/user/cashdetail/index.wxss */
+
+page {
+  background: white;
+}
+
+.first-part>text{font-weight:600;}
+.first-part, .two-part {
+  padding:  20rpx;
+}
+
+.middle {
+  background: #f7f7f7;
+  height: 20rpx;
+}
+
+.first-part>view {
+  padding: 15rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-part view:nth-child(n+3) text:last-child {
+  color: gray;
+}
+
+.first-part>view>text:first-child {
+  /* font-size: 26rpx; */
+  width:140rpx;
+  text-align: right;
+  color: #1a1a1a;
+}
+
+.label text {
+  border-radius:5rpx;margin-right:10rpx;padding:0 5rpx;font-size:20rpx;
+}
+
+.label .green-font {
+  border: 1px solid #129748;
+  color: #129748!important;
+}
+
+.label .pink-font {
+  border: 1px solid #c73148;
+  color: #c73148!important;
+}
+
+.label .blue-font {
+  color: #3d98ff;
+  border: 1px solid #3d98ff!important;
+}
+.label .gray-font {
+  color: #808080;
+  border: 1px solid #808080!important;
+}
+.record{text-align: center;}
+.photo{text-align: center;margin-top:20rpx;}
+.photo image{height:62rpx;width:66rpx;}
+.text-info{font-size:24rpx;margin-top:20rpx;display: flex;justify-content: space-between;}

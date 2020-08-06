@@ -1,0 +1,199 @@
+<view class="home">
+
+  <search></search>
+
+  <view class='ad white'>
+
+    <swiper autoplay="true" duration="1000" circular="true">
+      <swiper-item wx:for="{{indexAd.ad}}" wx:key="index">
+       <van-image  src="{{item.banner}}" use-error-slot width="100%" height="300rpx"  >
+         <image slot="error" src="{{imgRemote+item_default}}"></image>
+    </van-image>
+       </swiper-item>
+    </swiper>
+  </view>
+
+  <view class='notice white' wx:if="{{indexAd.public_msg}}">
+    <image src="{{prefix+'gcaidj_pic4.png'}}" mode="aspectFit"></image>
+    <swiper autoplay="true" duration="2000" circular="true">
+      <swiper-item wx:for="{{2}}" wx:key="index"> {{indexAd.public_msg}}</swiper-item>
+    </swiper>
+  </view>
+
+  <view class="white navs">
+    <view class="nav">
+      <view wx:for="{{nav}}" wx:key="index" bindtap="navUrl" data-item="{{item}}">
+        <image src="{{imgRemote+item.img_url}}" mode="aspectFit" wx:if="{{item.cate_id!=0}}"></image>
+        <image src="{{imgRemote+'/'+item.img_url}}" mode="aspectFit" wx:if="{{item.cate_id==0}}"></image>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  
+
+  </view>
+  <view class="banner4" wx:if="{{indexAd.banner4}}">
+    <van-image   src="{{indexAd.banner4}}" use-error-slot width="100%" height="200rpx">
+         <image slot="error" src="{{imgRemote+item_default}}"></image>
+    </van-image>
+  </view>
+
+  <!-- 限时抢购 -->
+  <view class="limit_active white" wx:if="{{itemList.length!=0}}">
+
+    <view class="limit-name flex_between">
+      <view class="align-center">
+        <view class="left-border"></view>
+        <view class="align-center title ">
+          <text> 限时抢购</text>
+          <van-count-down use-slot time="{{ time }}" bind:change="onChange">
+            <text class="item" wx:if="{{timeData.days>=1}}">{{  timeData.days*24 +timeData.hours}}</text>
+            <text class="item" wx:if="{{timeData.hours<10&&timeData.days<1}}">0{{ timeData.hours}}</text>
+            <text class="item" wx:if="{{timeData.hours>=10&&timeData.days<1}}">{{ timeData.hours}}</text> :
+            <text class="item"><text wx:if="{{timeData.minutes<10}}">0</text>{{ timeData.minutes }}</text>:
+            <text class="item"><text wx:if="{{timeData.seconds<10}}">0</text>{{ timeData.seconds }}</text>
+          </van-count-down>
+        </view>
+      </view>
+      <view class="more" bindtap="limitListUrl">
+        <text>更多</text>
+      </view>
+    </view>
+
+    <view class="active_info ">
+      <view wx:for="{{itemList.itemList}}" wx:key="key" bindtap="detailUrl" data-id="{{item.item_id}}">
+        <view class="image">
+          <image class="activelogo" src="{{itemList.logo}}" mode="aspectFit" wx:if="{{itemList.logo&&itemList.shuiyin==1}}"></image>
+          <van-image use-error-slot src="{{item.img==''?imgRemote+item_default:item.img}}" width="100%" height="200rpx" fit="contain">
+            <image slot="error" src="{{imgRemote+item_default}}" mode="aspectFit"></image>
+          </van-image>
+        </view>
+
+        <view>
+          <text class="block twelve"> {{item.item_title}}</text>
+          <text class="red_tag" wx:if="{{item.label.length!=0}}" wx:for="{{item.label}}" wx:key="key">{{item}}</text>
+        </view>
+          
+        <view class="flex-left-right">
+          <block wx:if="{{token}}">
+            <view wx:if="{{itemList.is_look==1}}" class="twelve">
+              <view class="red_font line-hidden" style="width:200rpx;">
+                <text class="rmb">￥</text>{{item.activity_price}}/{{item.unit}}
+              </view>
+              <view class="through">
+                <text class="rmb">￥</text>{{item.price}}</view>
+            </view>
+            <view wx:else class="red_font">
+              ***
+            </view>
+          </block>
+          <block wx:else>
+            <view class="red_font">
+              <text class="rmb">￥</text>{{item.price}}/{{item.unit}}</view>
+
+          </block>
+          <image class="addcart" src="{{prefix+'addcart.png'}}" mode="aspectFit"></image>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+  <!-- 为你推荐 -->
+  <view class="recommends">
+    <view class=" flex_between">
+      <view class="align-center">
+        <view class="left-border"></view>
+        <view class="align-center title">
+          <text>推荐商品</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="goods-info">
+      <view class="single-good" wx:for="{{list}}" wx:key="index">
+        <view bindtap="detailUrl" data-id="{{item.id}}">
+          <image class="logo" src="{{logo}}" mode="aspectFit" wx:if="{{logo&&shuiyin==1}}"></image>
+          <van-image use-error-slot src="{{item.img==''?imgRemote+item_default:item.img}}" width="100%" height="200rpx" fit="contain">
+            <image slot="error" src="{{imgRemote+item_default}}" mode="aspectFit"></image>
+          </van-image>
+          <view class="twelve"> {{item.title}}</view>
+          <view class="gray-font line-hidden ten" wx:if="{{item.describe}}">
+            {{item.describe}}
+          </view>
+        </view>
+        <view>
+
+
+          <view class="flex-left-right">
+            <view>
+              <text class="red_tag" wx:if="{{item.label.length!=0}}" wx:for="{{item.label}}" wx:key="key">{{item}}</text>
+              <view>
+
+                <block wx:if="{{token}}">
+                  <block wx:if="{{is_look==0}}">
+                    <text class="red_font">***</text>
+                  </block>
+                  <block wx:else>
+                    <view wx:if="{{item.attr.length==0}}" class="red-font twelve">
+                      <view wx:if="{{item.is_activity==1}}">
+                        <text class="rmb">￥</text>
+                        <text class="red_font">{{item.activity_price}}/{{item.unit}}</text>
+                        <text class="through gray-font ten">￥{{item.price}}</text>
+                      </view>
+                      <view wx:else class="red_font">
+                        <text class="rmb">￥</text>
+                        <text>{{item.price}}/{{item.unit}}</text>
+                      </view>
+
+                    </view>
+                    <view wx:else class="twelve line-hidden gray-font" style="width:280rpx;">
+                      <text class="rmb red-font ">￥</text>
+                      <text class="red-font ">{{item.area_price}}/{{item.unit}}</text>
+                      <text class="gray-font">(多规格)</text>
+                    </view>
+                  </block>
+                </block>
+
+                <block wx:else>
+					<view wx:if="{{item.attr.length==0}}" class="red-font twelve">
+					    <text class="rmb">￥</text>
+					    <text>{{item.price}}/{{item.unit}}</text>
+					</view>
+					<view wx:else class="twelve line-hidden gray-font" style="width:280rpx;">
+					  <text class="rmb red-font ">￥</text>
+					  <text class="red-font ">{{item.area_price}}/{{item.unit}}</text>
+					  <text class="gray-font">(多规格)</text>
+					</view>
+                </block>
+              </view>
+            </view>
+            <view>
+              <image bindtap="showCart" src="{{prefix+'addcart.png'}}" data-item="{{[item,{shuiyin:shuiyin,logo:logo,item_default:item_default}]}}" mode="aspectFit" class="addcart"></image>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class="gray-font ten bottom-text" >
+  <van-loading size="20rpx" text-size="20rpx" wx:if="{{loading==true}}">正在加载...</van-loading>
+  <view wx:if="{{loading==false}}">已经到底呢！</view>
+</view>
+  </view>
+</view>
+
+<view class="gray-font ten support">
+  由
+  <text style="color: rgb(157, 212, 127);">菜东家</text>提供技术支持
+</view>
+<!-- <view class="gray-font ten support" bindtap="pageUrl" data-url="http://www.caidj.cn">
+
+  由
+  <text style="color: rgb(157, 212, 127);">菜东家</text>提供技术支持
+</view> -->
+
+<van-toast id="van-toast" />
+<!-- <back-top showTop="{{showTop}}" ></back-top> -->
+<add-cart show="{{show}}" cartInfo="{{cartInfos}}"></add-cart>
+<footer activeIndex="{{activeIndex}}"></footer>

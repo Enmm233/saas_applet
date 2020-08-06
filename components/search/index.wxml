@@ -1,0 +1,10 @@
+
+  <view class="search_style" id='test' bindtap="searchUrl">
+    <view class="search">
+      <!-- <icon class="iconfont icon-icon-"></icon> -->
+      <icon type="search"></icon>
+      <view class="gray_font">请输入商品名称</view>
+     
+    </view>
+  </view>
+  <view style="height:108rpx;"></view>

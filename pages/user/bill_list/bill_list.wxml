@@ -1,0 +1,64 @@
+<!--pages/user/bill_list/bill_list.wxml-->
+<view class="bill_list">
+
+	<view class="top paddind_lr_20 paddind_tb_20">
+		<!-- <picker fields="month" mode="date" value="{{date}}" bindchange="bindDateChange"> -->
+			<view class="inp paddind_tb_10" bindtap="showPopup">
+				<van-icon name="search" />
+				<text>{{date}}</text>
+			</view>
+		<!-- </picker> -->
+
+	</view>
+
+	<view class="list_box paddind_lr_20">
+		<view class="item paddind_tb_20" bindtap="skip" id="{{item.id}}" wx:for="{{moneyList}}" wx:key="xxx">
+			<view class="left">
+				<view wx:if="{{item.pay_type==1}}" class="title blue">转账</view>
+				<view wx:if="{{item.pay_type==2}}" class="title green">现金</view>
+				<view wx:if="{{item.pay_type==3}}" class="title green">转账</view>
+				<view class="time">{{item.date}}</view>
+			</view>
+			<view class="right">¥{{item.receivable}}</view>
+		</view>
+		<!-- <view class="item paddind_tb_20">
+      <view class="left">
+        <view class="title green">现金</view>
+        <view class="time">2019-10-29 12:13</view>
+      </view>
+      <view class="right">¥12345678.00</view>
+    </view> -->
+	</view>
+	<!-- <view class="default_txt">
+    {{defaulTxt}}
+  </view> -->
+
+<!-- <van-popup show="{{ show }}" round position="bottom">	
+<van-datetime-picker
+  type="year-month"
+  value="{{ currentDate }}"
+  min-date="{{ minDate }}"
+  bind:confirm="onInput"
+  bind:cancel="onClose"
+/>
+</van-popup> -->
+
+
+	<view class="default_box" hidden="{{isdefault}}">
+		<image class="goods_img" src="{{prefix+'no_record.png'}}" mode="aspectFit"></image>
+	</view>
+</view>
+<van-calendar
+  show="{{ show }}"
+  type="range"
+  bind:close="onClose"
+  bind:confirm="onConfirm"
+   min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"
+  default-date="{{defaultDate}}"
+/>
+<view class="gray-font ten bottom-text">
+  <van-loading size="20rpx" text-size="20rpx" wx:if="{{loading==true&&isdefault==true}}">正在加载...</van-loading>
+
+  <view wx:if="{{loading==false&&isdefault==true}}">已经到底呢！</view>
+</view>

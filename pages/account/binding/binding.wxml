@@ -1,0 +1,29 @@
+<!--pages/user/binding/binding.wxml-->
+<form bindsubmit="bindPhone">
+<view class="binding">
+  <view class="top_red">
+    绑定后可提高账号安全性
+  </view>
+
+  <view class="list_box paddind_lr_20">
+    <view class="item paddind_tb_20">
+      <input placeholder="请输入手机号" name="mobile" bindinput='phone' type="number" maxlength="11"/>
+    </view>
+    <move-verify bind:result="verifyResult"></move-verify>
+   
+    <view class="item paddind_tb_20">
+       <view><input placeholder="请输入验证码" name="verify_code" type="number"/></view>
+      <view class="left">
+        <view class="btn" bindtap='sendCode' hidden='{{hidden}}' disabled='{{btnDisabled}}'>
+          {{btnValue}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="info_btn">
+  <button form-type='submit'>立即绑定</button>
+</view>
+</form>

@@ -1,0 +1,5 @@
+<!--pages/account/select/select.wxml-->
+<view class="select">
+  <view class="btn green" bindtap="create_account">创建新账号</view>
+  <view class="btn white" bindtap="binding_account">绑定已有账号</view>
+</view>

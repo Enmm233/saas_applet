@@ -1,0 +1,108 @@
+.van-tabs__line {
+  bottom: 20rpx !important;
+  width: 50rpx !important;
+  margin-left: 25rpx;
+}
+
+
+.all-juan {
+  background-size: cover !important;
+  border-radius: 10rpx;
+  height: 160rpx;
+  padding: 0rpx 10rpx 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 10rpx 20rpx 40rpx;
+}
+
+.all-juan .cash {
+  padding-top:20rpx;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.all-juan .info {
+  padding-top:15rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.all-juan .info>view:first-child {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 40rpx;
+}
+
+.tags .green-font {
+  border: 1px solid #129748;
+}
+
+.green-font {
+  color: #129748;
+}
+
+.tags .pink-font {
+  border: 1px solid #c73148;
+}
+
+.pink-font {
+  color: #c73148;
+}
+
+.tags .blue-font {
+  border: 1px solid #3d98ff;
+}
+
+.blue-font {
+  color: #3d98ff;
+}
+
+.tags .gray-font {
+  border: 1px solid #808080;
+}
+
+.title {
+  font-size: 20rpx;
+}
+
+.tags text {
+  border-radius: 5rpx;
+  font-size: 20rpx;
+  padding: 0 5rpx;
+  margin-right: 10rpx;
+}
+
+.statu {
+  font-size: #1a1a1a;
+}
+
+.bitmap {
+  margin-top: 20%;
+  height: 80vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.bitmap image {
+  height: 40vh;
+  width: 50vw;
+  background: transparent;
+}
+
+ /* .van-ellipsis {
+  color: black;
+} */
+/* .van-tab--active .van-ellipsis{color:#009A44;} */ 
+.backimg {
+  width: 96%;
+  height: 180rpx;
+  position: absolute;
+  z-index: -1;
+  border-radius: 10rpx;
+  background: transparent;
+  margin-left: -5%;
+}
+.all-juan .start {height:40rpx;line-height: 40rpx;}

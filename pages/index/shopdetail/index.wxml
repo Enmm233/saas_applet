@@ -1,0 +1,185 @@
+<!--pages/index/shopdetail/index.wxml-->
+<!-- 顶部 -->
+<!-- <view class="top-info flex-left-right {{position?'fixed':''}}">
+  <van-icon name="arrow-left" bindtap="back" />
+  <text wx:if="{{position}}">456</text>
+  
+</view> -->
+<view>
+	<van-image use-error-slot src="{{wares.img==''?imgRemote+wares.item_default:wares.img}}" width="100%" height="450rpx" fit="contain">
+		<image slot="error" src="{{imgRemote+wares.item_default}}" mode="aspectFit"></image>
+	</van-image>
+</view>
+<!-- 抢购时间 -->
+<view wx:if="{{wares.is_activity==1||wares.attr[kind].is_activity==1}}" class="panic-buying-time">
+	<view class="start">
+		<text class="text">正在抢购 </text>
+		<van-count-down use-slot time="{{ wares.panicActivity.timeRemain*1000}}" bind:change="onChange">
+			<text class="item" wx:if="{{timeData.days>=1}}">{{ timeData.days*24 +timeData.hours}}</text>
+			<text class="item" wx:if="{{timeData.hours<10&&timeData.days<1}}">0{{ timeData.hours}}</text>
+			<text class="item" wx:if="{{timeData.hours>=10&&timeData.days<1}}">{{ timeData.hours}}</text> :
+			<text class="item"><text wx:if="{{timeData.minutes<10}}">0</text>{{ timeData.minutes }}</text>:
+			<text class="item"><text wx:if="{{timeData.seconds<10}}">0</text>{{ timeData.seconds }}</text>
+		</van-count-down>
+
+	</view>
+	<view class="remain-num" wx:if="{{wares.is_activity==1}}">剩余
+		<text wx:if="{{wares.activity_num-wares.cart_num<0}}">0</text>
+		<text wx:else>{{wares.activity_num-wares.cart_num}}</text> 件
+	</view>
+	<text class="remain-num" wx:if="{{wares.attr[kind].is_activity==1}}">剩余：{{wares.attr[kind].activity_num-wares.attr[kind].cart_num}}件</text>
+</view>
+
+<!-- 商品操作 -->
+<view class="white shop-operate">
+
+	<view class="info">
+		<view>
+			<view class="fourteen">{{wares.title}}</view>
+			<view class="gray-font twelve" wx:if="{{wares.describe}}">{{wares.describe}}</view>
+		</view>
+		<view>
+			<view>
+				<view class="flex label">
+					<view>
+						<text class="red_tag" wx:if="{{wares.label}}" wx:for="{{wares.label}}" wx:key="key">{{item}}</text>
+					</view>
+
+					<view class="active-label" wx:if="{{wares.is_activity==3||wares.attr[kind].is_activity==3}}">
+						<text class="line-hidden block label-width">{{wares.activity_rule}}</text>
+						<van-icon name="arrow-down" wx:if="{{arrow==true}}" bindtap="showArrow" />
+						<van-icon name="arrow-up" wx:if="{{arrow==false}}" bindtap="showArrow" />
+					</view>
+
+				</view>
+
+				<block wx:if="{{wares.is_activity==2||wares.attr[kind].is_activity==2}}">
+					<view>
+						<text wx:for="{{wares.activity_rule}}" wx:key="key" class="full-reduce">满{{item.price}}减{{item.reduce}}</text>
+					</view>
+				</block>
+
+				<view wx:if="{{arrow==false}}" class="gray-font more-info">{{wares.activity_rule}}</view>
+			</view>
+			<view>
+				<block wx:if="{{token}}">
+					<block wx:if="{{wares.is_look==0}}">
+						<text class="red_font">***</text>
+					</block>
+					<block wx:else>
+						<block wx:if="{{wares.attr.length==0}}">
+							<view wx:if="{{wares.is_activity==1}}">
+
+								<block wx:if="{{wares.activity_num-wares.cart_num<=0}}">
+									<text class="red_font ten">￥{{wares.price}}/{{wares.unit}}</text>
+								</block>
+								<block wx:else>
+									<text class="twelve red_font">¥{{wares.activity_price}}/{{wares.unit}}</text>
+									<text class="through ten real-price">￥{{wares.price}}/{{wares.unit}}</text>
+
+								</block>
+							</view>
+							<view wx:else>
+								<text class="red_font ten">￥{{wares.price}}/{{wares.unit}}</text>
+							</view>
+						</block>
+						<block wx:else>
+							<view wx:if="{{wares.attr[kind].is_activity==1}}">
+								<block wx:if="{{wares.attr[kind].activity_num-wares.attr[kind].cart_num<=0}}">
+									<text class="red_font ten">￥{{wares.attr[kind].attr_price}}/{{wares.unit}}</text>
+								</block>
+								<block wx:else>
+									<text class="twelve red_font">¥{{wares.attr[kind].activity_price}}/{{wares.attr[kind].unit}}</text>
+									<text class="through ten real-price">￥{{wares.attr[kind].attr_price}}/{{wares.attr[kind].unit}}</text>
+								</block>
+
+							</view>
+							<view wx:else>
+								<text class="red_font ten">￥{{wares.attr[kind].attr_price}}/{{wares.unit}}</text>
+							</view>
+						</block>
+					</block>
+				</block>
+				<block wx:else>
+					<block wx:if="{{wares.attr.length==0}}">
+						<text  class="red_font twelve">￥{{wares.price}}/{{wares.unit}}</text>
+					</block>
+					<block wx:else>
+							<text class="red_font ten">￥{{wares.attr[kind].attr_price}}/{{wares.attr[kind].unit}}</text>
+					</block>
+				</block>
+			</view>
+		</view>
+	</view>
+	<view class="select-specs">
+		<view class="specs" wx:if="{{wares.attr.length!=0}}">选择规格</view>
+		<view>
+			<text wx:for="{{wares.attr}}" wx:key="2" class="twelve" wx:key="key" bindtap="selectSpecs" data-kind="{{index}}"
+			 class="{{kind==index?'active-specs':'inactive-specs'}}">{{item.attr_title}}</text>
+		</view>
+		<view class="flex-left-right">
+			<view class="buy-num">购买数量</view>
+			<van-stepper value="{{ val }}" bind:change="buyNum" bindtap="showKey" disable-input />
+		</view>
+	</view>
+</view>
+<!-- 相似商品 -->
+<view class="similar white" wx:if="{{recommend.list.length}}">
+	<view class="title weight fourteen align-center">
+		<view class="left-border"></view>
+		<text>相似商品</text>
+	</view>
+
+	<view class="flex similar-shops">
+		<view wx:for="{{recommend.list}}" class="single-shop" wx:key="key" bindtap="detailUrl" data-id="{{item.id}}">
+			<view class="photo">
+				<image class="recommendlogo" src="{{recommend.logo}}" mode="aspectFit" wx:if="{{recommend.logo&&recommend.shuiyin==1}}"></image>
+				<van-image use-error-slot src="{{item.img==''?imgRemote+recommend.item_default:item.img}}" width="100%" height="120rpx" fit="contain">
+					<image slot="error" src="{{imgRemote+recommend.item_default}}" mode="aspectFit"></image>
+				</van-image>
+				<text class="twelve">{{item.title}}</text>
+
+			</view>
+			<view class="goods_label">
+				<text class="red_tag" wx:if="{{item.label != ''}}" wx:for="{{item.label}}" wx:key="key">{{item}}</text>
+			</view>
+			<view class="red_font twelve" style="margin-top:5rpx;">
+				<block wx:if="{{token}}">
+					<block wx:if="{{wares.is_look==1}}"> ¥{{item.price}}</block>
+					<block wx:else>***</block>
+				</block>
+				<block wx:else> ¥{{item.price}}</block>
+
+			</view>
+		</view>
+	</view>
+
+</view>
+<!-- 图文详情 -->
+<view class="picture-text  white">
+	<view class="title weight fourteen align-center">
+		<view class="left-border"></view>
+		<text>图文详情</text>
+	</view>
+	<rich-text nodes="{{info}}"></rich-text>
+	<view class="no-content" wx:if="{{wares.info.length==0}}">
+		<image src="{{prefix+'no_content.png'}}"></image>
+	</view>
+
+</view>
+<view style="height:97.8rpx;"></view>
+<!-- 底部 -->
+<view class="bottom-operate flex-left-right white">
+	<view class="collect" bindtap="collect">
+		<van-icon name="star-o" size="40rpx" wx:if="{{collect==1}}" />
+		<van-icon name="star" color="orange" size="40rpx" wx:if="{{collect==2}}" />
+		<text class="ten gray-font">收藏</text>
+	</view>
+	<view class="flex buy-option">
+		<view class="add-cart" bindtap="addCart">加入购物车</view>
+		<view class="now-buy" bindtap="buyNow">立即购买</view>
+	</view>
+
+</view>
+<van-toast id="van-toast" />
+<key-board isHidden="{{keyBoard}}" bind:enterKey="enterKey"></key-board>

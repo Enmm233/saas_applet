@@ -1,0 +1,47 @@
+/* pages/user/userInfo/userInfo.wxss */
+.user_info{
+  padding-top: 10rpx;
+}
+.user_info .info_list{
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+.user_info .info_list .left{
+  color: #808080;
+}
+.user_info .list .left{
+  width: 120rpx;
+  color: #808080;
+}
+.user_info .list .right{
+  margin-left: 15rpx;
+}
+.user_info .list{
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+.user_info .info_list .right{
+  display: flex;
+  align-items: center;
+}
+.user_info .info_list .right image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.user_info .info_list .right icon{
+  margin-top: -15rpx;
+}
+.user_info .info_list .right input{
+  text-align: end;
+  color: #1a1a1a;
+}
+

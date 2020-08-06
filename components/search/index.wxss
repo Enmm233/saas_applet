@@ -1,0 +1,21 @@
+.search_style {
+   position: fixed;
+   padding: 20rpx;
+  background: white;
+  width:95%;
+  z-index:3;
+}
+
+.search_style .search input {
+  width: 180rpx;
+}
+.gray_font{color:#808080;}
+.search_style .search {
+  background: #f7f6f6;
+  display: flex;
+  border-radius: 50px;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

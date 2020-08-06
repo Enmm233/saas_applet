@@ -1,0 +1,50 @@
+var indexof = function (index) {
+  switch (index) {
+    case 2:
+      return 'green-font';
+      break;
+    case 1:
+      return 'blue-font';
+      break;
+    case 3:
+      return 'pink-font';
+      break;
+    case 4:
+      return "gray-font";
+      break;
+  }
+};
+
+var backIndex = function (index) {
+  switch (index) {
+    case 2:
+      return '../../../images/cash_green.png';
+      break;
+    case 1:
+      return '../../../images/cash_blue.png';
+
+      break;
+    case 3:
+      return '../../../images/cash_red.png';
+      break;
+    case 4:
+      return '../../../images/cash_grey.png';
+      break;
+  };
+};
+var split = function (str) {
+  var a = str.split(".");
+  // console.log(a)
+  return a;
+};
+
+var toFixed=function(num){
+  return num.toFixed(2)
+}
+module.exports = {
+  backimg: backIndex,
+  style: indexof,
+  split: split,
+  toFixed:toFixed,
+  parseFloat:parseFloat
+}

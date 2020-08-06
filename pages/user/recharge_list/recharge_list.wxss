@@ -1,0 +1,20 @@
+/* pages/user/recharge_list/recharge_list.wxss */
+.recharge_list{
+  margin-top: 15rpx;
+}
+.recharge_list .list_box{
+  background: #ffffff;
+}
+.recharge_list .list_box .item{
+  border-bottom: 1rpx solid #F7F7F7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recharge_list .list_box .item .time{
+  color: #808080;
+  margin-top: 5rpx;
+}
+.recharge_list .list_box .item .right{
+  font-size: 28rpx;
+}

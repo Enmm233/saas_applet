@@ -1,0 +1,70 @@
+/* pages/user/bill_list/bill_list.wxss */
+.van-calendar__day--end,.van-calendar__day--multiple-middle,.van-calendar__day--multiple-selected,.van-calendar__day--start,.van-calendar__day--start-end {
+  background: #009A44 !important;
+}
+.van-calendar__day--middle {
+  color: #009A44 !important;
+}
+.van-button--danger {
+  background: #009A44 !important;
+  border: 1rpx solid #009A44 !important;
+}
+.bill_list .top{
+  background: #ffffff;
+  color: #808080;
+}
+.bill_list .top .inp{
+  background: #F5F5F5;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bill_list .top .inp .van-icon{
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+.bill_list .list_box{
+  margin-top: 15rpx;
+  background: #ffffff;
+}
+.bill_list .list_box .item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #F6F6F6;
+}
+.bill_list .list_box .item .title{
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+.bill_list .list_box .item .time{
+  font-size: 22rpx;
+  color: #1A1A1A;
+}
+.bill_list .list_box .item .right{
+  font-size: 26rpx;
+  color: #FF3E1E;
+}
+.bill_list .list_box .item .blue{
+  color: #02B1E4;
+}
+.bill_list .list_box .item .green{
+  color: #009A44;
+}
+
+
+.bill_list .default_box{
+  text-align: center;
+  padding-top: 20%;
+}
+.bill_list .default_box image{
+  background: transparent;
+  width: 300rpx;
+  height: 300rpx;
+}
+.default_txt{
+  color: #808080;
+  text-align: center;
+  margin-top: 20rpx;
+}

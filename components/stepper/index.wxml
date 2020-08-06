@@ -1,0 +1,6 @@
+<!--components/steper/index.wxml-->
+<view class="stepper">
+<image src="../../images/jian.png" bindtap="minus"></image>
+<text bindtap="focus">{{value}}</text>
+<image src="../../images/plus.png" bindtap="plus"></image>
+</view>

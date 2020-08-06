@@ -1,0 +1,10 @@
+<!--pages/user/tailor/tailor.wxml-->
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+<view class="img">
+  <view class="tailor">
+    <view bindtap="quxiao">取消</view>
+    <view bindtap="queding">确定</view>
+  </view>
+  
+</view>
+<van-toast id="van-toast" />

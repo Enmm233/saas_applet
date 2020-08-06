@@ -1,0 +1,51 @@
+<!--pages/user/invoice/invoice.wxml-->
+<form bindsubmit='handleBill'>
+	<view class="invoice">
+		<view class="top">
+			<van-tabs type="card" active="{{ indexx }}" bind:click="onClick">
+				<van-tab title="企业发票"></van-tab>
+				<van-tab title="个人单位"></van-tab>
+			</van-tabs>
+		</view>
+		<view class="txt">
+			注 : 电子发票和纸质发票具有同等法律效率，可支持报销入账
+		</view>
+
+		<view class="list_box paddind_lr_20">
+
+			<view class="item paddind_tb_20">
+				<view class="left">发票抬头</view>
+				<view>
+					<input placeholder="请填发票抬头" value='{{billInfo.header}}' name="header" />
+				</view>
+			</view>
+			<view class="item paddind_tb_20">
+				<view class="left">税号</view>
+				<view>
+					<input placeholder="请填写纳税人识别号" value='{{billInfo.number}}' name="number" />
+				</view>
+			</view>
+
+			<view class="item paddind_tb_20">
+				<view class="left">发票内容</view>
+				<view>
+					<input placeholder="请输入发票内容" value='{{billInfo.content}}' name="content" />
+				</view>
+			</view>
+
+			<view class="item paddind_tb_20">
+				<view class="left">发票金额</view>
+				<view class="inp">
+					<input placeholder="请输入金额" type="digit" value='{{billInfo.price}}' name="price" style="color:red;" />
+					<text>元</text>
+				</view>
+			</view>
+
+		</view>
+
+	</view>
+
+	<view class="info_btn">
+		<button form-type='submit'>提交</button>
+	</view>
+</form>

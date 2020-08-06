@@ -1,0 +1,85 @@
+/* pages/user/index/index.wxss */
+page{
+  background: #ffffff;
+}
+.user_box{
+  font-size: 28rpx;
+}
+.user_box .user_top{
+  background: #009A44;
+  padding-top: 50rpx;
+  padding-bottom: 120rpx;
+  position: relative;
+}
+.user_box .user_top .user{
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user_box .user_top .user .left{
+  display: flex;
+  align-items: center;
+}
+.user_box .user_top .user .left image{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.user_box .user_top .user_card{
+  width: 75.2%;
+  background: #ffffff;
+  box-shadow:0rpx 1rpx 7rpx 1rpx rgba(20,20,20,0.09);
+  border-radius:12rpx;
+  padding: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top:220rpx;
+}
+.user_box .user_top .user_card .card_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_box .user_top .user_card .card_item:nth-child(2){
+  border-left: 1rpx solid #999999;
+  border-right: 1rpx solid #999999;
+  padding:0 70rpx;
+}
+.user_box .user_top .user_card .card_item image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.user_box .user_list{
+  padding-top: 90rpx;
+}
+.user_box .user_list .list_item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+.user_box .user_list .list_item button{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none !important;
+  background: none;
+  line-height: 1.2;
+  font-size: 26rpx;
+}
+button::after {
+  border: none !important;
+}
+  
+.user_box .user_list .list_item icon{
+  margin-right: 15rpx;
+}
+  
+.user_box .user_list .list_item .left icon{
+  margin-right: 15rpx;
+  font-size: 36rpx;
+}

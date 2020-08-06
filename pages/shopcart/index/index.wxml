@@ -1,0 +1,214 @@
+<!--pages/shopcart/index/index.wxml-->
+<!-- 账号信息 -->
+<wxs module="rank" src='../../../utils/state.wxs'></wxs>
+<block wx:if="{{addInfos.countNum!=0}}">
+  <view class="count-info" bindtap="addressUrl">
+    <view class="count">
+      <text class="weight" wx:if="{{contact}}">{{contact}}</text>
+      <text wx:if="{{phone}}">{{phone}}</text>
+    </view>
+
+    <view class="flex-left-right">
+      <view class="dizhi align-center"> 
+        <image src="{{prefix+'dizhi.png'}}"></image>
+        <text wx:if="{{address}}">{{address}}</text>
+      </view>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+  <!-- 下单时间 -->
+  <view class="order-time align-center">
+    <image src="{{prefix+'clock.gif'}}"></image>
+    {{addInfo}}
+    <text class="red_font">请在({{addInfos.open_time}} - {{addInfos.end_time}})之间下单</text>
+  </view>
+  <!-- 选择账号 -->
+  <view class="select-count">
+    <view class="child-count flex-left-right" bindtap="showCount" wx:if="{{addInfos.is_child==0}}">
+      <text class="weight">子账号</text>
+      <view>
+        <text>{{childCount}}</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="select-time flex-left-right" bindtap="showTime">
+      <text class="weight">配送日期</text>
+      <view>
+        <text>{{ date}}</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="select-time flex-left-right" bindtap="showTimeQuan">
+      <text class="weight">配送时间</text>
+      <view>
+        <text>{{timearea}}</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="shop-list flex-left-right" bindtap="shoplistUrl">
+      <text class="weight">商品列表</text>
+      <view>
+        <text>单品备注</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 费用 -->
+  <view class="white fee weight">
+    <view class="flex-left-right" bindtap="showJuan" wx:if="{{addInfos.is_child==0&&addInfos.on_delivery==0}}">
+      <text class="weight">现金劵</text>
+      <view>
+        <text class="gray-font">{{juaninfo}}</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="flex-left-right">
+      <text>小计</text>
+      <text>￥{{countPrice}}</text>
+    </view>
+    <view class="flex-left-right">
+      <text>运费</text>
+      <view>
+        <text class="gray-font" wx:if="{{fare==0}}">（免运费）</text>
+        <text wx:else>¥{{fare}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="remark white flex">
+    <text class="weight">备注</text>
+    <input placeholder="请告诉我们需要注意的地方" show-confirm-bar="{{false}}" wx:if="{{hiddenText}}" value="{{remark}}" bindinput="getRemark"></input>
+  </view>
+  <!-- 下单信息 -->
+  <view class="overbooking">
+    <view class="active-info flex-left-right" wx:if="{{activity_type==1}}" bindtap="classUrl">
+      <rich-text nodes="{{strInfo}}"></rich-text>
+      <view class="red-font align-center">
+        <text>去凑单</text>
+        <van-icon name="arrow" size="25rpx" />
+      </view>
+    </view>
+    <view class="flex white total">
+      <view class="align-center gifts">
+        <view>
+          <view class="gray-font">共{{countNum}}件</view>
+          <view class="gifts-num" wx:if="{{activity_type==2}}">(含赠品1件)</view>
+        </view>
+
+        <view class="amount">
+          <view> 合计 :
+            <block wx:if="{{totalPrice-juanPrice<=0}}">
+              <text class="red_font">¥0</text>
+            </block>
+            <block wx:else>
+              <text class="red_font">￥{{rank.toFixed(totalPrice-juanPrice)}}</text>
+            </block>
+          </view>
+          <view class="through count-price" wx:if="{{discount!=0}}">¥{{activePrice}}</view>
+        </view>
+      </view>
+      <view class="confirm-order" bindtap="confirmOrder">确认下单</view>
+    </view>
+
+  </view>
+</block>
+<block wx:else>
+  <view class="shopcart-null">
+    <image src="{{prefix+'nullcart.png'}}"></image>
+  </view>
+  <view class="recommends">
+    <view class=" flex_between">
+      <view class="align-center">
+        <view class="left-border"></view>
+        <view class="align-center title ">
+          <text>为你推荐</text>
+
+        </view>
+      </view>
+
+    </view>
+
+    <view class="goods-info">
+      <view class="single-good" wx:for="{{list}}" wx:key="index">
+
+        <view bindtap="detailUrl" data-id="{{item.id}}">
+          <image class="logo" src="{{logo}}" mode="aspectFit" wx:if="{{logo&&shuiyin==1}}"></image>
+          <van-image use-error-slot src="{{item.img==''?imgRemote+item_default:item.img}}" width="100%" height="200rpx" fit="contain">
+            <image slot="error" src="{{imgRemote+item_default}}" mode="aspectFit"></image>
+          </van-image>
+          <view class="twelve"> {{item.title}}</view>
+          <view class="gray-font line-hidden ten" wx:if="{{item.describe}}">
+            {{item.describe}}
+          </view>
+        </view>
+        <view>
+
+
+          <view class="flex-left-right">
+            <view>
+              <text class="red_tag" wx:for="{{item.label}}" wx:key="key">{{item}}</text>
+              <view>
+
+                <block wx:if="{{token}}">
+                  <block wx:if="{{is_look==0}}">
+                    <text class="red_font">***</text>
+                  </block>
+                  <block wx:else>
+                    <view wx:if="{{item.attr.length==0}}" class="red-font twelve">
+                      <view wx:if="{{item.is_activity==1}}">
+                        <text class="rmb">￥</text>
+                        <text class="red_font">{{item.activity_price}}/{{item.unit}}</text>
+                        <text class="through gray-font ten">￥{{item.price}}</text>
+                      </view>
+                      <view wx:else class="red_font">
+                        <text class="rmb">￥</text>
+                        <text>{{item.price}}/{{item.unit}}</text>
+                      </view>
+
+                    </view>
+                    <view wx:else class="twelve line-hidden gray-font" style="width:280rpx;">
+                      <text class="rmb red-font ">￥</text>
+                      <text class="red-font ">{{item.area_price}}/{{item.unit}}</text>
+                      <text class="gray-font">(多规格)</text>
+                    </view>
+                  </block>
+                </block>
+
+                <block wx:else>
+                  <view class="red-font twelve">
+                    <text class="rmb">￥</text>
+                    <text>{{item.price}}/{{item.unit}}</text>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view>
+              <image bindtap="showCart" src="{{prefix+'addcart.png'}}" data-item="{{[item,{shuiyin:shuiyin,logo:logo,item_default:item_default}]}}" mode="aspectFit" class="addcart"></image>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="gray-font ten bottom-text" >
+    <van-loading size="20rpx" text-size="20rpx" wx:if="{{loading==true}}">正在加载...</van-loading>
+    <view wx:if="{{loading==false}}">已经到底呢！</view>
+  </view>
+</block>
+<van-popup show="{{showCount}}" position="bottom">
+  <van-picker show-toolbar title="子账号" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" /></van-popup>
+<van-popup show="{{showTime}}" position="bottom">
+  <van-datetime-picker type="date" bind:confirm="selectTime" title="配送日期" bind:cancel="onCancel" value="{{ currentDate }}" min-date="{{ minDate }}" formatter="{{ formatter }}" /></van-popup>
+<van-popup show="{{timeQuantum}}" position="bottom">
+  <van-picker show-toolbar title="配送时间" columns="{{ timeQuan }}" bind:cancel="cancelQuan" bind:confirm="confirmQuan" />
+</van-popup>
+<van-popup show="{{juan}}" position="bottom">
+  <van-picker show-toolbar title="现金劵" columns="{{ juans }}" bind:cancel="cancelJuan" bind:confirm="confirmJuan" />
+</van-popup>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<add-cart show="{{showCart}}" cartInfo="{{cartInfos}}"></add-cart>
+<footer activeIndex="{{activeIndex}}"></footer>

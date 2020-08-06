@@ -1,0 +1,129 @@
+<!--pages/shopcart/shoplist/index.wxml-->
+<view class="shoplist-title white">
+	<!-- <van-icon name="arrow-left" bindtap="shopcartUrl" />
+  <text class="shoplist-list weight">商品列表</text> -->
+	<view>
+		共
+		<text class="red_font"> {{count}} </text>件商品
+	</view>
+	<text class="fourteen clear-all" bindtap="clearAll">清空</text>
+</view>
+<view class="white buy-list" wx:for="{{shop}}" wx:key="key" wx:for-index="first" wx:if="{{item.list.length!=0}}">
+	<view class="twelve">
+		<text class="green-tag">类别</text>
+		<text>{{item.p_name}}（{{item.count}}）</text>
+	</view>
+
+	<view wx:for="{{item.list}}" wx:for-item="list" wx:for-index="second" wx:key="key" class="sign-good">
+		<view class="flex goods">
+			<view>
+				<view class="img-width" bindtap="detailUrl" data-id="{{list.id}}">
+					<image class="logo" src="{{logo}}" wx:if="{{logo&&shuiyin==1}}" mode="aspectFit"></image>
+					<view class="photo">
+						<van-image use-error-slot src="{{list.img==''?imgRemote+item_default:list.img}}" width="240rpx" height="152rpx" fit="contain">
+							<image slot="error" src="{{imgRemote+item_default}}"></image>
+						</van-image>
+					</view>
+
+				</view>
+			</view>
+			<view>
+				<view class="good-info">
+					<view class="good-name ">
+						<text class="twelve">{{list.title}}</text>
+						<text class="ten gray-font line-hidden block" wx:if="{{list.describe}}"> {{list.describe}}</text>
+
+					</view>
+					<view bindtap="deleteSign" data-list="{{[list,first,second]}}">
+						<icon class="red_font iconfont icon-shanchu weight"></icon>
+					</view>
+
+
+				</view>
+
+				<view class="flex-left-right">
+					<view>
+						<text class="red_tag" wx:if="{{list.label.length!=0}}" wx:for="{{list.label}}" wx:key="key">{{item}}</text>
+						<block wx:if="{{list.attr.length==0}}">
+							<block wx:if="{{list.is_activity==1}}">
+								<view class="twelve red-font" wx:if="{{list.activity_num>=list.cart_num}}">
+									<text class="rmb">¥</text>{{list.activity_price}}/{{list.unit}}
+									<text class="through">¥{{list.price}}</text>
+								</view>
+               	<view class="red-font" wx:else>
+									<text class="rmb">¥</text>{{list.price}}/{{list.unit}}</view>
+
+							</block>
+							<block wx:else>	
+							<view class="red-font">	<text class="rmb">¥</text>{{list.price}}/{{list.unit}}</view></block>
+						</block>
+						<block wx:else>
+							<view class="red-font twelve">
+              <block wx:if="{{list.attr.is_activity==1}}">
+              	<block class="twelve red-font" wx:if="{{list.attr.activity_num>=list.cart_num}}">
+									<text class="rmb">¥</text>{{list.attr.activity_price}}/{{list.attr.unit}}
+									<text class="through">¥{{list.attr.attr_price}}</text>
+								</block>
+               	<block class="red-font" wx:else>
+									<text class="rmb">¥</text>{{list.attr.attr_price}}/{{list.attr.unit}}</block>
+              </block>
+              <block wx:else>
+              	<text class="rmb">¥</text>{{list.attr.attr_price}}/{{list.attr.unit}}
+              </block>
+							
+								<text class="gray-font">已选({{list.attr.attr_title}})</text>
+							</view>
+						</block>
+					</view>
+
+					<view style="height:32rpx;">
+						<van-stepper value="{{list.cart_num}}" data-item="{{[list,list.cart_num,first,second]}}" bind:plus="plus" bind:minus="minus" bindtap="keyFocus" min="0" disable-input />
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="flex remark align-center">
+			<text> 备注：</text>
+			<view bindtap="addRemark" data-item="{{[list,list.cart_num,first,second]}}">
+				<text class="remark" wx:if="{{list.remark}}">{{list.remark}}</text>
+				<text wx:else class="gray-font twelve">请告诉我们需要注意的地方~</text>
+			</view>
+		</view>
+	</view>
+
+</view>
+<view class="present white" wx:if="{{activity_type==2&&countPrice>=gift.price}}">
+	<view class="gift">
+		<text class="">赠品</text>
+		<text>赠品(1)</text>
+	</view>
+	<view class="flex-left-right">
+
+		<view class="align-center">
+			<view>
+
+				<van-image fit="contain" width="160rpx" height="140rpx" src="{{gift.item[0].img}}" use-error-slot>
+
+				</van-image>
+			</view>
+			<view>
+				<view>{{gift.item[0].title}}</view>
+
+			</view>
+
+		</view>
+
+		<view>x{{gift.item[0].num}}</view>
+
+	</view>
+</view>
+
+<van-dialog use-slot title="确定要修改备注吗？" show="{{ showRemark }}" show-cancel-button bind:confirm="confirmRemark">
+	<input placeholder="请输入你想说的" value="{{remark}}" show-confirm-bar="{{false}}" bindinput="changeRemark" class="textRemark" auto-focus="true"></input>
+	<!-- <textarea  /> -->
+</van-dialog>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<add-cart show="{{cart}}" cartInfo="{{cartInfos}}"></add-cart>
+<key-board isHidden="{{show}}" bind:enterKey="enterKey"></key-board>

@@ -1,0 +1,30 @@
+<!--pages/user/forget/forget.wxml-->
+<form bindsubmit='forgetPassword'>
+<view class="forget paddind_lr_20">
+
+  <view class="list paddind_tb_20">
+    <view class="title">原密码</view>
+    <view class="txt">
+      <input class="username" name="old" type="password" placeholder="请输入原始密码" />
+    </view>
+  </view>
+
+  <view class="list paddind_tb_20">
+    <view class="title">新密码</view>
+    <view class="txt">
+      <input class="username" name="new1" type="password" placeholder="请设置6位及以上的新密码" />
+    </view>
+  </view>
+
+  <view class="list paddind_tb_20">
+    <view class="title">确认密码</view>
+    <view class="txt">
+      <input class="username" name="new2" type="password" placeholder="请确认新密码" />
+    </view>
+  </view>
+
+</view>
+<view class="info_btn">
+  <button formType="submit" type='primary'>保存</button>
+</view>
+</form>

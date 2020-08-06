@@ -1,0 +1,41 @@
+<!--pages/account/register/index.wxml-->
+<form bindsubmit="register">
+  <view class="register-info">
+    <view>
+      <text>单位名称</text>
+      <input placeholder="请输入单位名称" name="nickname" placeholder-class="font-color"></input>
+    </view>
+    <view>
+      <text>手机号</text>
+      <input placeholder="请输入手机号" type="number" maxlength="11" name="mobile" bindinput="phone" placeholder-class="font-color"></input>
+    </view>
+    <view>
+      <text>密码</text>
+      <input placeholder="请设置六位及以上的密码" password name="password" placeholder-class="font-color"></input>
+    </view>
+    <view>
+      <text>确认密码</text>
+      <input placeholder="请再次确认登录密码" password name="confirm_pwd" placeholder-class="font-color"></input>
+    </view> 
+<move-verify bind:result="verifyResult"></move-verify>
+   
+    <view class="getcode">
+
+      <view class="code-value">
+        <text>验证码</text>
+        <input placeholder="请输入验证码"  bindfocus="getverify"
+        name="verify_code" placeholder-class="font-color"></input>
+      </view>
+      <view class='"message-code" {{btn==true?"inactive":"active"}}' bindtap="getMessage">{{str}}</view>
+    </view>
+
+  </view>
+
+  <view class="register-button">
+    <button class='submit {{btn==true&&resbtn==true?"active":"inactive"}}' formType="submit">注册</button>
+
+  </view>
+</form>
+<view class="now-login" bindtap="loginUrl">已有账户？现在登录>></view>
+<view class="treaty" bindtap="treatyUrl">注册协议</view>
+<van-toast id="van-toast" />

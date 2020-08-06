@@ -1,0 +1,58 @@
+/* pages/user/purchase_detail/purchase_detail.wxss */
+page{
+	background: #ffffff;
+}
+.purchase_detail .record_box{
+	border-top: 10rpx solid #F7F6F6;
+	border-bottom: 10rpx solid #F7F6F6;
+	padding: 10rpx 15rpx;
+	display: flex;
+}
+.purchase_detail .record_box .img{
+	margin-right: 15rpx;
+}
+.purchase_detail .record_box .record_detail{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.purchase_detail .record_box .record_detail .title{
+	margin-bottom: 10rpx;
+}
+.purchase_detail .record_box .record_detail .txt{
+	font-size: 22rpx;
+	color: #808080;
+	margin-top: 5rpx;
+}
+.purchase_detail .record_box .record_detail .bottom{
+	font-size: 22rpx;
+	text-align: end;
+}
+.purchase_detail .record_box .record_detail .bottom text{
+	color: #FF3E1E;
+}
+.purchase_detail .pur_list .item{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding: 20rpx;
+	border-bottom: 1rpx solid #F7F6F6;
+}
+.purchase_detail .pur_list .item .time{
+	margin-bottom: 15rpx;
+}
+.purchase_detail .pur_list .item .time{
+	color: #1A1A1A;
+}
+.purchase_detail .pur_list .item .num{
+	font-size: 22rpx;
+	color: #808080;
+}
+.purchase_detail .pur_list .item .num text{
+	margin-right: 20rpx;
+}
+.purchase_detail .pur_list .item .right{
+	font-size: 22rpx;
+	color: #808080;
+}

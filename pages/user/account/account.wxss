@@ -1,0 +1,50 @@
+/* pages/user/account/account.wxss */
+.account{
+  margin-top: 15rpx;
+  margin-bottom: 50rpx;
+}
+.account .account_list{
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rpx;
+}
+.account .account_list .left{
+  width: 80%;
+}
+.account .account_list .left .sddress{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account .account_list .right image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.add_btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+.add_btn view{
+  background: #009A44;
+  color: #ffffff;
+  margin-right: 15rpx;
+  margin-left: 15rpx;
+  text-align: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.img_box{
+  text-align: center;
+  margin-top: 200rpx;
+}
+.img_box image{
+  width: 350rpx;
+  height: 340rpx;
+  background: transparent;
+}

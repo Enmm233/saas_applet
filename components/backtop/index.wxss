@@ -1,0 +1,14 @@
+/* components/backtop/index.wxss */
+.go-top{
+  height: 60rpx;
+  width: 60rpx;
+  position: fixed;
+  bottom: 11rpx;
+  z-index: 555;
+  display: flex;align-items: center;justify-content: center;
+  background: rgba(0,0,0,.3);
+  right: 20rpx;
+  border-radius: 50%;
+  text-align: center;
+}
+.go-top image{width:30rpx;height:40rpx;background: transparent;}

@@ -1,0 +1,24 @@
+/* pages/order/play/play.wxss */
+.play .top_txt{
+  background: #FAD0CA;
+  color: #FF3E1E;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.play .list_box{
+  background: #ffffff;
+}
+.play .list_box .item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.play .list_box .item .money{
+  color: #FF3E1E;
+}
+.play .bottom_txt{
+  color: #808080;
+  font-size: 24rpx;
+  margin-bottom: 80rpx;
+}

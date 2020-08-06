@@ -1,0 +1,152 @@
+/* pages/shopcart/index/index.wxss */
+
+.count-info {
+  background: white;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+
+.count-info .count {
+  margin-bottom: 20rpx;
+  font-size:30rpx;
+}
+
+.count-info .count>text:first-child {
+  margin-right: 20rpx;
+}
+
+.count-info .count>text:last-child {
+  font-size: 26rpx;
+}
+
+.count-info .van-icon {
+  font-size: 30rpx;
+  color: #808080;
+}
+
+.count-info .dizhi image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.count-info .dizhi text {
+  width: 554rpx;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  line-height: 1;
+}
+
+.order-time image {
+  background: transparent;
+  width: 50rpx;
+  height: 30rpx;
+}
+
+.order-time {
+  padding: 15rpx 0;
+}
+
+.select-count {
+  background: white;
+  padding: 0rpx 20rpx;
+}
+
+.select-count>view {
+  height: 68rpx;
+  line-height: 68rpx;
+}
+
+.select-count>view>view {
+  color: #808080;
+  display: flex;
+}
+
+.fee {
+  padding: 0rpx 20rpx;
+  margin: 10rpx 0;
+}
+
+.fee>view {
+  height: 68rpx;
+  line-height: 68rpx;
+}
+
+.remark {
+  height: 115rpx;
+  padding: 10rpx 0 0 20rpx;
+}
+
+.overbooking {
+  width: 100%;
+  position: fixed;
+  bottom: 100rpx;
+  /* padding: 10rpx 0rpx; */
+}
+
+.gifts {
+  width: 80%;
+  padding: 0 20rpx;
+}
+
+.confirm-order {
+  width: 20%;
+  background: #ff3e1e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gifts>view:first-child {
+  margin-right: 15rpx;
+}
+
+.gifts .gifts-num {
+  font-size: 20rpx;
+  color: #009a44;
+}
+
+.amount {
+  font-size: 32rpx;
+}
+
+.overbooking .total {
+  min-height: 100rpx;
+}
+
+.count-price {
+  text-indent: 92rpx;
+  font-size: 20rpx;
+}
+
+.active-info {
+  background: #e8f0e4;
+  height: 49rpx;
+  line-height: 49rpx;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+}
+
+.remark input {
+  z-index: 0;
+  width: 89%;
+  /* height: 100rpx; */
+  margin:0 0 0 20rpx;
+}
+
+.shopcart-null {
+  text-align: center;
+  background: white;
+  padding: 248rpx 0;
+}
+
+.shopcart-null image {
+  height: 292rpx;
+  width: 310rpx;
+}
+
+.recommends .title text {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-left: 10rpx;
+}
